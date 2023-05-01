@@ -1,0 +1,82 @@
+------------------------------\r\nTerminal=14005&Usuario=Admin&Passwd=@Duetazze2022&Mac=40:22:D8:05:5D:70------------------------------\r\nTerminal=14003&Establecimiento=Cafe Bar La Paraita&Operacion=Venta&Importe=20&Creditos=149&TotalDosisA=197&TotalDosisB=87&ParcialDosisA=197&ParcialDosisB=29&Caja=25.00<?xml version='1.0' encoding='UTF-8'?>
+        <REQUEST type = 'RESP' mode='' >
+          <TERMINAL>14003</TERMINAL>
+          <FECHA>2023-02-22 09:07:54</FECHA>
+          <ESTABLECIMIENTO>Cafe Bar La Paraita</ESTABLECIMIENTO>
+          <PRECIOPORDOSIS>0.2</PRECIOPORDOSIS>
+          <OPERACION>Venta</OPERACION>
+          <ESTADO>1</ESTADO>
+          <BONOS>0</BONOS>
+        </REQUEST>------------------------------\r\nTerminal=14003&Establecimiento=Cafe Bar La Paraita&Operacion=Venta&Importe=20&Creditos=248&TotalDosisA=198&TotalDosisB=87&ParcialDosisA=198&ParcialDosisB=29&Caja=45.00<?xml version='1.0' encoding='UTF-8'?>
+        <REQUEST type = 'RESP' mode='' >
+          <TERMINAL>14003</TERMINAL>
+          <FECHA>2023-02-22 09:08:03</FECHA>
+          <ESTABLECIMIENTO>Cafe Bar La Paraita</ESTABLECIMIENTO>
+          <PRECIOPORDOSIS>0.2</PRECIOPORDOSIS>
+          <OPERACION>Venta</OPERACION>
+          <ESTADO>1</ESTADO>
+          <BONOS>0</BONOS>
+        </REQUEST>------------------------------\r\nTerminal=14003&Establecimiento=Cafe Bar La Paraita&Operacion=Venta&Importe=50&Creditos=331&TotalDosisA=345&TotalDosisB=107&ParcialDosisA=345&ParcialDosisB=49&Caja=95.00<?xml version='1.0' encoding='UTF-8'?>
+        <REQUEST type = 'RESP' mode='' >
+          <TERMINAL>14003</TERMINAL>
+          <FECHA>2023-02-22 13:25:37</FECHA>
+          <ESTABLECIMIENTO>Cafe Bar La Paraita</ESTABLECIMIENTO>
+          <PRECIOPORDOSIS>0.2</PRECIOPORDOSIS>
+          <OPERACION>Venta</OPERACION>
+          <ESTADO>1</ESTADO>
+          <BONOS>0</BONOS>
+        </REQUEST>------------------------------\r\nTerminal=14001&Establecimiento=Hostal el Garrotal&Operacion=Venta&Importe=10&Creditos=623&TotalDosisA=1633&TotalDosisB=497&ParcialDosisA=1633&ParcialDosisB=497&Caja=440.00<?xml version='1.0' encoding='UTF-8'?>
+        <REQUEST type = 'RESP' mode='' >
+          <TERMINAL>14001</TERMINAL>
+          <FECHA>2023-02-22 14:32:21</FECHA>
+          <ESTABLECIMIENTO>Hostal el Garrotal</ESTABLECIMIENTO>
+          <PRECIOPORDOSIS>0.16</PRECIOPORDOSIS>
+          <OPERACION>Venta</OPERACION>
+          <ESTADO>1</ESTADO>
+          <BONOS>0</BONOS>
+        </REQUEST>------------------------------\r\nTerminal=14001&Establecimiento=Hostal el Garrotal&Operacion=Venta&Importe=20&Creditos=742&TotalDosisA=1638&TotalDosisB=498&ParcialDosisA=1638&ParcialDosisB=498&Caja=460.00<?xml version='1.0' encoding='UTF-8'?>
+        <REQUEST type = 'RESP' mode='' >
+          <TERMINAL>14001</TERMINAL>
+          <FECHA>2023-02-22 14:47:56</FECHA>
+          <ESTABLECIMIENTO>Hostal el Garrotal</ESTABLECIMIENTO>
+          <PRECIOPORDOSIS>0.16</PRECIOPORDOSIS>
+          <OPERACION>Venta</OPERACION>
+          <ESTADO>1</ESTADO>
+          <BONOS>0</BONOS>
+        </REQUEST>------------------------------\r\nTerminal=14004&Establecimiento=Venta Campo Rico &Operacion=Cierre diferido&Importe=0&Creditos=60&TotalDosisA=248&TotalDosisB=178&ParcialDosisA=248&ParcialDosisB=75&Caja=50.00<?xml version='1.0' encoding='UTF-8'?>
+        <REQUEST type = 'RESP' mode='' >
+          <TERMINAL>14004</TERMINAL>
+          <FECHA>2023-02-22 16:05:27</FECHA>
+          <ESTABLECIMIENTO>Venta Campo Rico </ESTABLECIMIENTO>
+          <PRECIOPORDOSIS>0.23</PRECIOPORDOSIS>
+          <OPERACION>Cierre diferido</OPERACION>
+          <ESTADO>1</ESTADO>
+          <BONOS>0</BONOS>
+        </REQUEST>------------------------------\r\nTerminal=14004&Establecimiento=Venta Campo Rico &Operacion=Venta&Importe=10&Creditos=67&TotalDosisA=271&TotalDosisB=192&ParcialDosisA=271&ParcialDosisB=89&Caja=60.00<?xml version='1.0' encoding='UTF-8'?>
+        <REQUEST type = 'RESP' mode='' >
+          <TERMINAL>14004</TERMINAL>
+          <FECHA>2023-02-22 17:49:56</FECHA>
+          <ESTABLECIMIENTO>Venta Campo Rico </ESTABLECIMIENTO>
+          <PRECIOPORDOSIS>0.23</PRECIOPORDOSIS>
+          <OPERACION>Venta</OPERACION>
+          <ESTADO>1</ESTADO>
+          <BONOS>0</BONOS>
+        </REQUEST>------------------------------\r\nTerminal=14004&Establecimiento=Venta Campo Rico &Operacion=Venta&Importe=50&Creditos=273&TotalDosisA=280&TotalDosisB=194&ParcialDosisA=280&ParcialDosisB=91&Caja=110.00<?xml version='1.0' encoding='UTF-8'?>
+        <REQUEST type = 'RESP' mode='' >
+          <TERMINAL>14004</TERMINAL>
+          <FECHA>2023-02-22 20:39:53</FECHA>
+          <ESTABLECIMIENTO>Venta Campo Rico </ESTABLECIMIENTO>
+          <PRECIOPORDOSIS>0.23</PRECIOPORDOSIS>
+          <OPERACION>Venta</OPERACION>
+          <ESTADO>1</ESTADO>
+          <BONOS>0</BONOS>
+        </REQUEST>------------------------------\r\nTerminal=14004&Establecimiento=Venta Campo Rico &Operacion=Venta&Importe=20&Creditos=360&TotalDosisA=280&TotalDosisB=194&ParcialDosisA=280&ParcialDosisB=91&Caja=130.00<?xml version='1.0' encoding='UTF-8'?>
+        <REQUEST type = 'RESP' mode='' >
+          <TERMINAL>14004</TERMINAL>
+          <FECHA>2023-02-22 20:40:09</FECHA>
+          <ESTABLECIMIENTO>Venta Campo Rico </ESTABLECIMIENTO>
+          <PRECIOPORDOSIS>0.23</PRECIOPORDOSIS>
+          <OPERACION>Venta</OPERACION>
+          <ESTADO>1</ESTADO>
+          <BONOS>0</BONOS>
+        </REQUEST>

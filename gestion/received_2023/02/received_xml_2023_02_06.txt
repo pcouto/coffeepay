@@ -1,0 +1,1 @@
+------------------------------\r\nTerminal=15999&Usuario=Admin&Passwd=@Duetazze2022&Mac=24:6F:28:B1:27:44

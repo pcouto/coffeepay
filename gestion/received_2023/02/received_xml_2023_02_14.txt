@@ -1,0 +1,10 @@
+------------------------------\r\nTerminal=14004&Establecimiento=Bar Prueba 4&Operacion=Venta&Importe=5&Creditos=20&TotalDosisA=1&TotalDosisB=103&ParcialDosisA=1&ParcialDosisB=103&Caja=30.00<?xml version='1.0' encoding='UTF-8'?>
+        <REQUEST type = 'RESP' mode='' >
+          <TERMINAL>14004</TERMINAL>
+          <FECHA>2023-02-14 13:00:44</FECHA>
+          <ESTABLECIMIENTO>Bar Prueba 4</ESTABLECIMIENTO>
+          <PRECIOPORDOSIS>0.25</PRECIOPORDOSIS>
+          <OPERACION>Venta</OPERACION>
+          <ESTADO>1</ESTADO>
+          <BONOS>0</BONOS>
+        </REQUEST>

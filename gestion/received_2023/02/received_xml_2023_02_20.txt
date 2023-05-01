@@ -1,0 +1,19 @@
+------------------------------\r\nTerminal=14001&Establecimiento=Hostal el Garrotal&Operacion=Venta&Importe=20&Creditos=828&TotalDosisA=1100&TotalDosisB=325&ParcialDosisA=1100&ParcialDosisB=325&Caja=360.00<?xml version='1.0' encoding='UTF-8'?>
+        <REQUEST type = 'RESP' mode='' >
+          <TERMINAL>14001</TERMINAL>
+          <FECHA>2023-02-20 14:57:54</FECHA>
+          <ESTABLECIMIENTO>Hostal el Garrotal</ESTABLECIMIENTO>
+          <PRECIOPORDOSIS>0.16</PRECIOPORDOSIS>
+          <OPERACION>Venta</OPERACION>
+          <ESTADO>1</ESTADO>
+          <BONOS>0</BONOS>
+        </REQUEST>------------------------------\r\nTerminal=14001&Establecimiento=Hostal el Garrotal&Operacion=Venta&Importe=50&Creditos=1044&TotalDosisA=1170&TotalDosisB=351&ParcialDosisA=1170&ParcialDosisB=351&Caja=410.00<?xml version='1.0' encoding='UTF-8'?>
+        <REQUEST type = 'RESP' mode='' >
+          <TERMINAL>14001</TERMINAL>
+          <FECHA>2023-02-20 18:21:45</FECHA>
+          <ESTABLECIMIENTO>Hostal el Garrotal</ESTABLECIMIENTO>
+          <PRECIOPORDOSIS>0.16</PRECIOPORDOSIS>
+          <OPERACION>Venta</OPERACION>
+          <ESTADO>1</ESTADO>
+          <BONOS>0</BONOS>
+        </REQUEST>

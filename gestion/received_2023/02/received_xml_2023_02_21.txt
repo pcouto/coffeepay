@@ -1,0 +1,64 @@
+------------------------------\r\nTerminal=14003&Usuario=Admin&Passwd=@Duetazze&Mac=40:22:D8:03:BD:10------------------------------\r\nTerminal=14003&Usuario=Admin&Passwd=@Duetazze&Mac=40:22:D8:03:BD:10------------------------------\r\nTerminal=14003&Usuario=Admin&Passwd=@Duetazze2022&Mac=40:22:D8:03:BD:10------------------------------\r\nTerminal=14003&Usuario=Admin&Passwd=@Duetazze2022&Mac=40:22:D8:03:BD:10------------------------------\r\nTerminal=14003&Usuario=Admin&Passwd=@Duetazze&Mac=40:22:D8:03:BD:10------------------------------\r\nTerminal=14003&Usuario=Admin&Passwd=@Duetazze2022&Mac=40:22:D8:03:BD:10------------------------------\r\nTerminal=14003&Usuario=Admin&Passwd=@Duetazze2022&Mac=40:22:D8:03:BD:10------------------------------\r\nTerminal=14003&Usuario=Admin&Passwd=@Duetazze2022&Mac=40:22:D8:03:BD:10------------------------------\r\nTerminal=14003&Usuario=Admin&Passwd=@Duetazze2022&Mac=40:22:D8:03:BD:10------------------------------\r\nTerminal=14003&Usuario=Admin&Passwd=@Duetazze&Mac=40:22:D8:03:BD:10------------------------------\r\nTerminal=14003&Usuario=Admin&Passwd=@Duetazze2022&Mac=40:22:D8:03:BD:10------------------------------\r\nTerminal=14003&Usuario=Admin&Passwd=@Duetazze&Mac=40:22:D8:03:BD:10------------------------------\r\nTerminal=14003&Usuario=Admin&Passwd=@Duetazze2022&Mac=40:22:D8:03:BD:10------------------------------\r\nTerminal=14003&Usuario=Admin&Passwd=@Duetazze&Mac=40:22:D8:03:BD:10------------------------------\r\nTerminal=14003&Usuario=Admin&Passwd=@Duetazze&Mac=40:22:D8:03:BD:10------------------------------\r\nTerminal=14003&Usuario=Admin&Passwd=@Duetazze&Mac=40:22:D8:03:BD:10------------------------------\r\nTerminal=14003&Usuario=Admin&Passwd=@Duetazze2022&Mac=40:22:D8:03:BD:10------------------------------\r\nTerminal=14003&Usuario=Admin&Passwd=@Duetazze2022&Mac=40:22:D8:03:BD:10------------------------------\r\nTerminal=14003&Usuario=Admin&Passwd=@Duetazze2022&Mac=40:22:D8:03:BD:10------------------------------\r\nTerminal=14003&Usuario=Admin&Passwd=@Duetazze2022&Mac=40:22:D8:03:BD:10------------------------------\r\nTerminal=14003&Usuario=Admin&Passwd=@Duetazze2022&Mac=40:22:D8:03:BD:10------------------------------\r\nTerminal=14004&Usuario=Admin&Passwd=@Duetazze2022&Mac=40:22:D8:03:AC:10------------------------------\r\nTerminal=14004&Usuario=Admin&Passwd=@Duetazze2022&Mac=40:22:D8:03:AC:10------------------------------\r\nTerminal=14003&Usuario=Admin&Passwd=@Duetazze2022&Mac=40:22:D8:03:BD:10------------------------------\r\nTerminal=14003&Usuario=Admin&Passwd=@Duetazze2022&Mac=40:22:D8:03:BD:10------------------------------\r\nTerminal=14003&Usuario=Admin&Passwd=@Duetazze2022&Mac=40:22:D8:03:BD:10------------------------------\r\nTerminal=14003&Usuario=Admin&Passwd=@Duetazze2022&Mac=40:22:D8:03:BD:10------------------------------\r\nTerminal=14004&Usuario=Admin&Passwd=@Duetazze2022&Mac=40:22:D8:03:AC:10------------------------------\r\nTerminal=14004&Usuario=Admin&Passwd=@Duetazze2022&Mac=40:22:D8:03:AC:10------------------------------\r\nTerminal=14004&Usuario=Admin&Passwd=@Duetazze2022&Mac=40:22:D8:03:AC:10------------------------------\r\nTerminal=14004&Usuario=Admin&Passwd=@Duetazze2022&Mac=40:22:D8:03:AC:10------------------------------\r\nTerminal=14004&Establecimiento=Bar Prueba 4&Operacion=Cierre Caja&Importe=-30&Creditos=0&TotalDosisA=0&TotalDosisB=103&ParcialDosisA=21&ParcialDosisB=103&Caja=30.00<?xml version='1.0' encoding='UTF-8'?>
+        <REQUEST type = 'RESP' mode='' >
+          <TERMINAL>14004</TERMINAL>
+          <FECHA>2023-02-21 10:07:57</FECHA>
+          <ESTABLECIMIENTO>Bar Prueba 4</ESTABLECIMIENTO>
+          <PRECIOPORDOSIS>0.23</PRECIOPORDOSIS>
+          <OPERACION>Cierre Caja</OPERACION>
+          <ESTADO>1</ESTADO>
+          <BONOS>0</BONOS>
+        </REQUEST>------------------------------\r\nTerminal=14004&Usuario=Admin&Passwd=@Duetazze2022&Mac=40:22:D8:03:AC:10------------------------------\r\nTerminal=14004&Usuario=Admin&Passwd=@Duetazze2022&Mac=40:22:D8:03:AC:10------------------------------\r\nTerminal=14001&Establecimiento=Hostal el Garrotal&Operacion=Cierre diferido&Importe=0&Creditos=811&TotalDosisA=1348&TotalDosisB=406&ParcialDosisA=1348&ParcialDosisB=406&Caja=410.00<?xml version='1.0' encoding='UTF-8'?>
+        <REQUEST type = 'RESP' mode='' >
+          <TERMINAL>14001</TERMINAL>
+          <FECHA>2023-02-21 13:08:48</FECHA>
+          <ESTABLECIMIENTO>Hostal el Garrotal</ESTABLECIMIENTO>
+          <PRECIOPORDOSIS>0.16</PRECIOPORDOSIS>
+          <OPERACION>Cierre diferido</OPERACION>
+          <ESTADO>1</ESTADO>
+          <BONOS>0</BONOS>
+        </REQUEST>------------------------------\r\nTerminal=14003&Establecimiento=Cafe Bar La Paraita&Operacion=Venta&Importe=5&Creditos=25&TotalDosisA=0&TotalDosisB=58&ParcialDosisA=0&ParcialDosisB=0&Caja=5.00<?xml version='1.0' encoding='UTF-8'?>
+        <REQUEST type = 'RESP' mode='' >
+          <TERMINAL>14003</TERMINAL>
+          <FECHA>2023-02-21 13:42:33</FECHA>
+          <ESTABLECIMIENTO>Cafe Bar La Paraita</ESTABLECIMIENTO>
+          <PRECIOPORDOSIS>0.2</PRECIOPORDOSIS>
+          <OPERACION>Venta</OPERACION>
+          <ESTADO>1</ESTADO>
+          <BONOS>250</BONOS>
+        </REQUEST>------------------------------\r\nTerminal=14003&Usuario=Admin&Passwd=@Duetazze2022&Mac=40:22:D8:03:BD:10------------------------------\r\nTerminal=14003&Usuario=Admin&Passwd=@Duetazze2022&Mac=40:22:D8:03:BD:10------------------------------\r\nTerminal=14003&Usuario=Admin&Passwd=@Duetazze2022&Mac=40:22:D8:03:BD:10------------------------------\r\nTerminal=14003&Usuario=Admin&Passwd=@Duetazze2022&Mac=40:22:D8:03:BD:10------------------------------\r\nTerminal=14001&Establecimiento=Hostal el Garrotal&Operacion=Venta&Importe=20&Creditos=916&TotalDosisA=1364&TotalDosisB=410&ParcialDosisA=1364&ParcialDosisB=410&Caja=430.00<?xml version='1.0' encoding='UTF-8'?>
+        <REQUEST type = 'RESP' mode='' >
+          <TERMINAL>14001</TERMINAL>
+          <FECHA>2023-02-21 15:02:35</FECHA>
+          <ESTABLECIMIENTO>Hostal el Garrotal</ESTABLECIMIENTO>
+          <PRECIOPORDOSIS>0.16</PRECIOPORDOSIS>
+          <OPERACION>Venta</OPERACION>
+          <ESTADO>1</ESTADO>
+          <BONOS>0</BONOS>
+        </REQUEST>------------------------------\r\nTerminal=14004&Establecimiento=Venta Campo Rico &Operacion=Venta&Importe=10&Creditos=168&TotalDosisA=34&TotalDosisB=110&ParcialDosisA=34&ParcialDosisB=7&Caja=10.00<?xml version='1.0' encoding='UTF-8'?>
+        <REQUEST type = 'RESP' mode='' >
+          <TERMINAL>14004</TERMINAL>
+          <FECHA>2023-02-21 20:27:32</FECHA>
+          <ESTABLECIMIENTO>Venta Campo Rico </ESTABLECIMIENTO>
+          <PRECIOPORDOSIS>0.23</PRECIOPORDOSIS>
+          <OPERACION>Venta</OPERACION>
+          <ESTADO>1</ESTADO>
+          <BONOS>0</BONOS>
+        </REQUEST>------------------------------\r\nTerminal=14004&Establecimiento=Venta Campo Rico &Operacion=Venta&Importe=20&Creditos=255&TotalDosisA=34&TotalDosisB=110&ParcialDosisA=34&ParcialDosisB=7&Caja=30.00<?xml version='1.0' encoding='UTF-8'?>
+        <REQUEST type = 'RESP' mode='' >
+          <TERMINAL>14004</TERMINAL>
+          <FECHA>2023-02-21 20:36:45</FECHA>
+          <ESTABLECIMIENTO>Venta Campo Rico </ESTABLECIMIENTO>
+          <PRECIOPORDOSIS>0.23</PRECIOPORDOSIS>
+          <OPERACION>Venta</OPERACION>
+          <ESTADO>1</ESTADO>
+          <BONOS>0</BONOS>
+        </REQUEST>------------------------------\r\nTerminal=14004&Establecimiento=Venta Campo Rico &Operacion=Venta&Importe=20&Creditos=342&TotalDosisA=34&TotalDosisB=110&ParcialDosisA=34&ParcialDosisB=7&Caja=50.00<?xml version='1.0' encoding='UTF-8'?>
+        <REQUEST type = 'RESP' mode='' >
+          <TERMINAL>14004</TERMINAL>
+          <FECHA>2023-02-21 20:37:01</FECHA>
+          <ESTABLECIMIENTO>Venta Campo Rico </ESTABLECIMIENTO>
+          <PRECIOPORDOSIS>0.23</PRECIOPORDOSIS>
+          <OPERACION>Venta</OPERACION>
+          <ESTADO>1</ESTADO>
+          <BONOS>0</BONOS>
+        </REQUEST>

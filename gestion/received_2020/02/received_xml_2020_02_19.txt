@@ -1,0 +1,1 @@
+------------------------------\r\nTerminal=80001&Comercio=Sotocafe Estacion&Operacion=Venta&Importe=10&Creditos=2&DosisA=1325&DosisB=830&Caja=755

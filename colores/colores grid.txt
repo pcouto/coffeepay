@@ -1,0 +1,14 @@
+#053969 - Azul
+#005C83 - Azul claro
+#16534E - verde Azulado
+#345D31 - Verder 
+#A78A14 - Mostaza
+#BA6B1C - Naranja
+#CA4921 - Naranja 
+#BD0E25 - Rojo
+#B3063B - Rosa
+#7D1A49 - Berenjena
+#501742 - Violeta
+#1B2352 - Azul Marino
+#34495E - Gris Marino
+

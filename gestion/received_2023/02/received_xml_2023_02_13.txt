@@ -1,0 +1,46 @@
+------------------------------\r\nTerminal=15888&Establecimiento=Bar cero&Operacion=Venta&Importe=5&Creditos=36&TotalDosisA=20&TotalDosisB=19&ParcialDosisA=20&ParcialDosisB=19&Caja=50.00<?xml version='1.0' encoding='UTF-8'?>
+        <REQUEST type = 'RESP' mode='' >
+          <TERMINAL>15888</TERMINAL>
+          <FECHA>2023-02-13 09:39:46</FECHA>
+          <ESTABLECIMIENTO>Bar cero</ESTABLECIMIENTO>
+          <PRECIOPORDOSIS>0.22</PRECIOPORDOSIS>
+          <OPERACION>Venta</OPERACION>
+          <ESTADO>1</ESTADO>
+          <BONOS>0</BONOS>
+        </REQUEST>------------------------------\r\nTerminal=14001&Establecimiento=Bar Oscar&Operacion=Reset - Unidad Puesta a 0&Importe=0&Creditos=0&TotalDosisA=0&TotalDosisB=0&ParcialDosisA=0&ParcialDosisB=0&Caja=0.00<?xml version='1.0' encoding='UTF-8'?>
+        <REQUEST type = 'RESP' mode='' >
+          <TERMINAL>14001</TERMINAL>
+          <FECHA>2023-02-13 10:18:22</FECHA>
+          <ESTABLECIMIENTO>Bar Oscar</ESTABLECIMIENTO>
+          <PRECIOPORDOSIS>0.25</PRECIOPORDOSIS>
+          <OPERACION>Reset - Unidad Puesta a 0</OPERACION>
+          <ESTADO>1</ESTADO>
+          <BONOS>0</BONOS>
+        </REQUEST>------------------------------\r\nTerminal=14001&Usuario=Admin&Passwd=@Duetazze2022&Mac=24:6F:28:A1:6C:E8------------------------------\r\nTerminal=14001&Usuario=Admin&Passwd=@Duetazze2022&Mac=24:6F:28:A1:6C:E8------------------------------\r\nTerminal=15888&Establecimiento=Bar cero&Operacion=Venta&Importe=5&Creditos=23&TotalDosisA=21&TotalDosisB=57&ParcialDosisA=21&ParcialDosisB=57&Caja=55.00<?xml version='1.0' encoding='UTF-8'?>
+        <REQUEST type = 'RESP' mode='' >
+          <TERMINAL>15888</TERMINAL>
+          <FECHA>2023-02-13 10:28:59</FECHA>
+          <ESTABLECIMIENTO>Bar cero</ESTABLECIMIENTO>
+          <PRECIOPORDOSIS>0.22</PRECIOPORDOSIS>
+          <OPERACION>Venta</OPERACION>
+          <ESTADO>1</ESTADO>
+          <BONOS>0</BONOS>
+        </REQUEST>------------------------------\r\nTerminal=15888&Establecimiento=Bar cero&Operacion=Venta&Importe=5&Creditos=22&TotalDosisA=24&TotalDosisB=78&ParcialDosisA=24&ParcialDosisB=78&Caja=60.00<?xml version='1.0' encoding='UTF-8'?>
+        <REQUEST type = 'RESP' mode='' >
+          <TERMINAL>15888</TERMINAL>
+          <FECHA>2023-02-13 10:29:56</FECHA>
+          <ESTABLECIMIENTO>Bar cero</ESTABLECIMIENTO>
+          <PRECIOPORDOSIS>0.22</PRECIOPORDOSIS>
+          <OPERACION>Venta</OPERACION>
+          <ESTADO>1</ESTADO>
+          <BONOS>0</BONOS>
+        </REQUEST>------------------------------\r\nTerminal=14002&Usuario=Admin&Passwd=@Duetazze2022&Mac=24:0A:C4:C5:4B:74------------------------------\r\nTerminal=14002&Usuario=Admin&Passwd=@Duetazze2022&Mac=24:0A:C4:C5:4B:74------------------------------\r\nTerminal=14002&Establecimiento=Bar Angel&Operacion=Cierre Caja&Importe=-100&Creditos=0&TotalDosisA=425&TotalDosisB=432&ParcialDosisA=1&ParcialDosisB=356&Caja=100.00<?xml version='1.0' encoding='UTF-8'?>
+        <REQUEST type = 'RESP' mode='' >
+          <TERMINAL>14002</TERMINAL>
+          <FECHA>2023-02-13 10:58:43</FECHA>
+          <ESTABLECIMIENTO>Bar Angel</ESTABLECIMIENTO>
+          <PRECIOPORDOSIS>0.25</PRECIOPORDOSIS>
+          <OPERACION>Cierre Caja</OPERACION>
+          <ESTADO>1</ESTADO>
+          <BONOS>0</BONOS>
+        </REQUEST>------------------------------\r\nTerminal=14001&Usuario=Admin&Passwd=@Duetazze&Mac=24:6F:28:A1:6C:E8------------------------------\r\nTerminal=14001&Usuario=Admin&Passwd=@Duetazze&Mac=24:6F:28:A1:6C:E8------------------------------\r\nTerminal=14001&Usuario=Admin&Passwd=@Duetazze&Mac=24:6F:28:A1:6C:E8------------------------------\r\nTerminal=14001&Usuario=Admin&Passwd=@Duetazze2020&Mac=24:6F:28:A1:6C:E8------------------------------\r\nTerminal=14001&Usuario=Admin&Passwd=@Duetazze2020&Mac=24:6F:28:A1:6C:E8------------------------------\r\nTerminal=14001&Usuario=Admin&Passwd=@Duetazze&Mac=24:6F:28:A1:6C:E8------------------------------\r\nTerminal=14001&Usuario=Admin&Passwd=@Duetazze&Mac=24:6F:28:A1:6C:E8------------------------------\r\nTerminal=14001&Usuario=Admin&Passwd=@Duetazze2020&Mac=24:6F:28:A1:6C:E8------------------------------\r\nTerminal=14001&Usuario=Admin&Passwd=@Duetazze2022&Mac=24:6F:28:A1:6C:E8------------------------------\r\nTerminal=14001&Usuario=Admin&Passwd=@Duetazze&Mac=24:6F:28:A1:6C:E8------------------------------\r\nTerminal=14001&Usuario=Admin&Passwd=@Duetazze&Mac=24:6F:28:A1:6C:E8------------------------------\r\nTerminal=14001&Usuario=Admin&Passwd=@Duetazze2022&Mac=24:6F:28:A1:6C:E8

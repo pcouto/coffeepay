@@ -1,0 +1,1 @@
+------------------------------\r\nTerminal=15999&Establecimiento=Bar Knessen&Operacion=Venta&Importe=5&Creditos=30&TotalDosisA=13&TotalDosisB=60&ParcialDosisA=13&ParcialDosisB=60&Caja=20.00

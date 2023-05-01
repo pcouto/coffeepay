@@ -1,0 +1,14 @@
+---->
+************************ 2023-05-01 09:55:01*****************************
+Bonos : 60
+Precio Por Dosis : 0.18
+Establecimiento : Bar Kyuco 3
+Previo : [{"PPD": 0.18,"Bonos": 60, "Est": "Bar Kyuco 2"}]
+PrevData : Array
+PrevBonos : 60
+PrevEstablecimiento : Bar Kyuco 2
+PrevPrecioPorDosis : 
+Precios Distintos ??? 0.18   
+------------
+Prev Data : [{"PPD": 0.18,"Bonos": 60, "Est": "Bar Kyuco 3"}]
+Sql : UPDATE Datos SET PrevData = '[{"PPD": 0.18,"Bonos": 60, "Est": "Bar Kyuco 3"}]' where Terminal = '141002'

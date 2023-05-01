@@ -1,0 +1,54 @@
+
+	/* alternate row color */
+    .myAltRowClass { background-color: #edf2f5 ; }
+
+	tr.canceled_row
+	{
+		background: #eb4034;
+		color: white;
+		border: 1px solid darkgray;
+	}
+
+
+      .btn-custom {
+        width : 150px !important;
+        padding: 10px;
+        margin: 10px 30px 0px 15px;
+        font-size: 14px;
+      }
+
+      .btn-cierre,
+      .btn-cierre:hover,
+      .btn-cierre:active,
+      .btn-cierre:visited,
+      .btn-cierre:focus {
+          background-color: #1000f1;
+          border-color: #f8f8f8;
+          }
+
+      .btn-reset,
+      .btn-reset:hover,
+      .btn-reset:active,
+      .btn-reset:visited,
+      .btn-reset:focus {
+          background-color: #008500;
+          border-color: #f8f8f8;
+          }
+
+      .btn-cancel,
+      .btn-cancel:hover,
+      .btn-cancel:active,
+      .btn-cancel:visited,
+      .btn-cancel:focus {
+          background-color: #f10000;
+          border-color: #f8f8f8;
+          }
+
+          .btn-radio,
+          .btn-radio:hover,
+          .btn-radio:active,
+          .btn-radio:visited,
+          .btn-radio:focus {
+              background-color: #1000f1;
+              border-color: #f8f8f8;
+              }

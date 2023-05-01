@@ -1,0 +1,10 @@
+------------------------------\r\nTerminal=15888&Usuario=Admin&Passwd=@Duetazze2022&Mac=40:22:D8:03:B7:CC------------------------------\r\nTerminal=15888&Establecimiento=Bar cero&Operacion=Reset - Unidad Puesta a 0&Importe=0&Creditos=0&TotalDosisA=0&TotalDosisB=0&ParcialDosisA=0&ParcialDosisB=0&Caja=0.00<?xml version='1.0' encoding='UTF-8'?>
+        <REQUEST type = 'RESP' mode='' >
+          <TERMINAL>15888</TERMINAL>
+          <FECHA>2023-02-16 18:38:21</FECHA>
+          <ESTABLECIMIENTO>Bar cero</ESTABLECIMIENTO>
+          <PRECIOPORDOSIS>0.22</PRECIOPORDOSIS>
+          <OPERACION>Reset - Unidad Puesta a 0</OPERACION>
+          <ESTADO>1</ESTADO>
+          <BONOS>0</BONOS>
+        </REQUEST>------------------------------\r\nTerminal=15888&Usuario=Admin&Passwd=@Duetazze2022&Mac=40:22:D8:03:B7:CC

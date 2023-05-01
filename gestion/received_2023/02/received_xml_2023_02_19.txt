@@ -1,0 +1,37 @@
+------------------------------\r\nTerminal=14001&Establecimiento=Hostal el Garrotal&Operacion=Venta&Importe=50&Creditos=460&TotalDosisA=904&TotalDosisB=264&ParcialDosisA=904&ParcialDosisB=264&Caja=260.00<?xml version='1.0' encoding='UTF-8'?>
+        <REQUEST type = 'RESP' mode='' >
+          <TERMINAL>14001</TERMINAL>
+          <FECHA>2023-02-19 12:51:15</FECHA>
+          <ESTABLECIMIENTO>Hostal el Garrotal</ESTABLECIMIENTO>
+          <PRECIOPORDOSIS>0.16</PRECIOPORDOSIS>
+          <OPERACION>Venta</OPERACION>
+          <ESTADO>1</ESTADO>
+          <BONOS>0</BONOS>
+        </REQUEST>------------------------------\r\nTerminal=14001&Establecimiento=Hostal el Garrotal&Operacion=Venta&Importe=50&Creditos=772&TotalDosisA=904&TotalDosisB=264&ParcialDosisA=904&ParcialDosisB=264&Caja=310.00<?xml version='1.0' encoding='UTF-8'?>
+        <REQUEST type = 'RESP' mode='' >
+          <TERMINAL>14001</TERMINAL>
+          <FECHA>2023-02-19 12:51:30</FECHA>
+          <ESTABLECIMIENTO>Hostal el Garrotal</ESTABLECIMIENTO>
+          <PRECIOPORDOSIS>0.16</PRECIOPORDOSIS>
+          <OPERACION>Venta</OPERACION>
+          <ESTADO>1</ESTADO>
+          <BONOS>0</BONOS>
+        </REQUEST>------------------------------\r\nTerminal=14001&Establecimiento=Hostal el Garrotal&Operacion=Venta&Importe=20&Creditos=897&TotalDosisA=904&TotalDosisB=264&ParcialDosisA=904&ParcialDosisB=264&Caja=330.00<?xml version='1.0' encoding='UTF-8'?>
+        <REQUEST type = 'RESP' mode='' >
+          <TERMINAL>14001</TERMINAL>
+          <FECHA>2023-02-19 12:51:42</FECHA>
+          <ESTABLECIMIENTO>Hostal el Garrotal</ESTABLECIMIENTO>
+          <PRECIOPORDOSIS>0.16</PRECIOPORDOSIS>
+          <OPERACION>Venta</OPERACION>
+          <ESTADO>1</ESTADO>
+          <BONOS>0</BONOS>
+        </REQUEST>------------------------------\r\nTerminal=14001&Establecimiento=Hostal el Garrotal&Operacion=Venta&Importe=10&Creditos=960&TotalDosisA=904&TotalDosisB=264&ParcialDosisA=904&ParcialDosisB=264&Caja=340.00<?xml version='1.0' encoding='UTF-8'?>
+        <REQUEST type = 'RESP' mode='' >
+          <TERMINAL>14001</TERMINAL>
+          <FECHA>2023-02-19 12:51:52</FECHA>
+          <ESTABLECIMIENTO>Hostal el Garrotal</ESTABLECIMIENTO>
+          <PRECIOPORDOSIS>0.16</PRECIOPORDOSIS>
+          <OPERACION>Venta</OPERACION>
+          <ESTADO>1</ESTADO>
+          <BONOS>0</BONOS>
+        </REQUEST>

@@ -1,0 +1,1 @@
+------------------------------\r\nTerminal=141001&Establecimiento=Sin Nombre de Establecimiento&Operacion=Venta&Importe=5&Creditos=30&TotalDosisA=0&TotalDosisB=101&ParcialDosisA=0&ParcialDosisB=5&Caja=20.00

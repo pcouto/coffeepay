@@ -1,0 +1,37 @@
+------------------------------\r\nTerminal=14003&Establecimiento=Cafe Bar La Paraita&Operacion=Venta&Importe=20&Creditos=152&TotalDosisA=881&TotalDosisB=200&ParcialDosisA=881&ParcialDosisB=142&Caja=185.00<?xml version='1.0' encoding='UTF-8'?>
+        <REQUEST type = 'RESP' mode='' >
+          <TERMINAL>14003</TERMINAL>
+          <FECHA>2023-02-24 09:01:13</FECHA>
+          <ESTABLECIMIENTO>Cafe Bar La Paraita</ESTABLECIMIENTO>
+          <PRECIOPORDOSIS>0.2</PRECIOPORDOSIS>
+          <OPERACION>Venta</OPERACION>
+          <ESTADO>1</ESTADO>
+          <BONOS>0</BONOS>
+        </REQUEST>------------------------------\r\nTerminal=14003&Establecimiento=Cafe Bar La Paraita&Operacion=Venta&Importe=50&Creditos=264&TotalDosisA=996&TotalDosisB=223&ParcialDosisA=996&ParcialDosisB=165&Caja=235.00<?xml version='1.0' encoding='UTF-8'?>
+        <REQUEST type = 'RESP' mode='' >
+          <TERMINAL>14003</TERMINAL>
+          <FECHA>2023-02-24 11:17:56</FECHA>
+          <ESTABLECIMIENTO>Cafe Bar La Paraita</ESTABLECIMIENTO>
+          <PRECIOPORDOSIS>0.2</PRECIOPORDOSIS>
+          <OPERACION>Venta</OPERACION>
+          <ESTADO>1</ESTADO>
+          <BONOS>0</BONOS>
+        </REQUEST>------------------------------\r\nTerminal=14004&Establecimiento=Venta Campo Rico &Operacion=Venta&Importe=50&Creditos=262&TotalDosisA=694&TotalDosisB=378&ParcialDosisA=694&ParcialDosisB=275&Caja=245.00<?xml version='1.0' encoding='UTF-8'?>
+        <REQUEST type = 'RESP' mode='' >
+          <TERMINAL>14004</TERMINAL>
+          <FECHA>2023-02-24 23:30:47</FECHA>
+          <ESTABLECIMIENTO>Venta Campo Rico </ESTABLECIMIENTO>
+          <PRECIOPORDOSIS>0.23</PRECIOPORDOSIS>
+          <OPERACION>Venta</OPERACION>
+          <ESTADO>1</ESTADO>
+          <BONOS>0</BONOS>
+        </REQUEST>------------------------------\r\nTerminal=14004&Establecimiento=Venta Campo Rico &Operacion=Venta&Importe=20&Creditos=349&TotalDosisA=694&TotalDosisB=378&ParcialDosisA=694&ParcialDosisB=275&Caja=265.00<?xml version='1.0' encoding='UTF-8'?>
+        <REQUEST type = 'RESP' mode='' >
+          <TERMINAL>14004</TERMINAL>
+          <FECHA>2023-02-24 23:31:10</FECHA>
+          <ESTABLECIMIENTO>Venta Campo Rico </ESTABLECIMIENTO>
+          <PRECIOPORDOSIS>0.23</PRECIOPORDOSIS>
+          <OPERACION>Venta</OPERACION>
+          <ESTADO>1</ESTADO>
+          <BONOS>0</BONOS>
+        </REQUEST>

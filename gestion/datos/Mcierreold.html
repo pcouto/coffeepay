@@ -1,0 +1,80 @@
+<script type="text/javascript">
+    function mSendMRForm() {
+
+        var btncerrar = document.getElementById("BtnCerrar");
+        btncerrar.innerHTML = "Procesando...";
+        var vterm = document.getElementById("MCterminal").innerHTML; // MCterminal  =modal cierre terminal
+        var varfecha = document.getElementById("vfecha"); //importe escrito en el modal
+        var vfecha = varfecha.value;
+        var varimporte = document.getElementById("vimporte"); //importe escrito en el modal
+        var vimporte = varimporte.value;
+
+        if (vimporte == ""){
+            varimporte.placeholder = "Importe no válido ";
+            return false;
+        }
+
+
+        fetch('./cierreturno.php', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ "terminal": vterm, "importe" : vimporte })
+        })
+            .then(response => response.json())
+            .then(response => console.log(JSON.stringify(response)))
+        
+        document.getElementById("cancelbtn").click(); 
+
+        $( function() {
+    
+    $( "#vfecha" ).datepicker();
+    $.datepicker.formatDate('dd-mm-yy', dateTypeVar);
+  } );
+
+
+    }
+
+
+</script> 
+
+<!-- Modal1 -->
+<div class="modal fade " id="Mcierre" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"
+    data-keyboard="false" data-backdrop="static">
+    <div class="shadow modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="d-flex justify-content-center align-items-center container">
+
+                <form action="" method="post" id="Mcierre">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Cierre de Caja</h4>
+                        <span class="mobile-text"><b class="text-danger" id="MCterminal">MCterminal</b> </span>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <span class="mobile-text"><b class="text-danger"></b> </span>
+                            <input type="hidden" name="Vterminal" id="Vterminal" placeholder="terminal">
+                            <div class="col-mb-3 w-40">
+                                <label for="vfechacierre" class="form-label">Fecha y hora de cierre</label>
+                                <input type="datetime" name="vfechadecierre" id="vfecha" class="form-control input-sm" value = "<?php echo (date('d-m-Y H:i:s'));?>" placeholder="Inserte Fecha">
+                            </div>
+                            <div class="col-mb-3 w-40">
+                                <label for="vimporte" class="form-label">Importe Recaudado</label>
+                                <input type="text" name = "importe" id="vimporte" class="form-control input-sm" width="48" placeholder="Inserte Importe">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn btn-outline-secondary" id = "cancelbtn" data-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-success" id="BtnCerrar" onclick="mSendMRForm()">Cerrar Caja</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+
+
+    </div>
+</div>

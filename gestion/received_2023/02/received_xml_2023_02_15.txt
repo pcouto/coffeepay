@@ -1,0 +1,91 @@
+------------------------------\r\nTerminal=14001&Usuario=Admin&Passwd=@Duetazze&Mac=24:6F:28:A1:6C:E8------------------------------\r\nTerminal=14001&Usuario=Admin&Passwd=@Duetazze&Mac=24:6F:28:A1:6C:E8------------------------------\r\nTerminal=14001&Usuario=Admin&Passwd=@Duetazze2022&Mac=24:6F:28:A1:6C:E8------------------------------\r\nTerminal=14001&Establecimiento=Hostal el Garrotal&Operacion=Venta&Importe=50&Creditos=312&TotalDosisA=1&TotalDosisB=1&ParcialDosisA=1&ParcialDosisB=1&Caja=50.00<?xml version='1.0' encoding='UTF-8'?>
+        <REQUEST type = 'RESP' mode='' >
+          <TERMINAL>14001</TERMINAL>
+          <FECHA>2023-02-15 12:35:16</FECHA>
+          <ESTABLECIMIENTO>Hostal el Garrotal</ESTABLECIMIENTO>
+          <PRECIOPORDOSIS>0.16</PRECIOPORDOSIS>
+          <OPERACION>Venta</OPERACION>
+          <ESTADO>1</ESTADO>
+          <BONOS>0</BONOS>
+        </REQUEST>------------------------------\r\nTerminal=14001&Establecimiento=Hostal el Garrotal&Operacion=Venta&Importe=20&Creditos=437&TotalDosisA=1&TotalDosisB=1&ParcialDosisA=1&ParcialDosisB=1&Caja=70.00<?xml version='1.0' encoding='UTF-8'?>
+        <REQUEST type = 'RESP' mode='' >
+          <TERMINAL>14001</TERMINAL>
+          <FECHA>2023-02-15 12:35:45</FECHA>
+          <ESTABLECIMIENTO>Hostal el Garrotal</ESTABLECIMIENTO>
+          <PRECIOPORDOSIS>0.16</PRECIOPORDOSIS>
+          <OPERACION>Venta</OPERACION>
+          <ESTADO>1</ESTADO>
+          <BONOS>0</BONOS>
+        </REQUEST>------------------------------\r\nTerminal=14001&Establecimiento=Hostal el Garrotal&Operacion=Venta&Importe=5&Creditos=468&TotalDosisA=1&TotalDosisB=1&ParcialDosisA=1&ParcialDosisB=1&Caja=75.00<?xml version='1.0' encoding='UTF-8'?>
+        <REQUEST type = 'RESP' mode='' >
+          <TERMINAL>14001</TERMINAL>
+          <FECHA>2023-02-15 12:36:26</FECHA>
+          <ESTABLECIMIENTO>Hostal el Garrotal</ESTABLECIMIENTO>
+          <PRECIOPORDOSIS>0.16</PRECIOPORDOSIS>
+          <OPERACION>Venta</OPERACION>
+          <ESTADO>1</ESTADO>
+          <BONOS>0</BONOS>
+        </REQUEST>------------------------------\r\nTerminal=14001&Establecimiento=Hostal el Garrotal&Operacion=Venta&Importe=50&Creditos=779&TotalDosisA=3&TotalDosisB=1&ParcialDosisA=3&ParcialDosisB=1&Caja=125.00<?xml version='1.0' encoding='UTF-8'?>
+        <REQUEST type = 'RESP' mode='' >
+          <TERMINAL>14001</TERMINAL>
+          <FECHA>2023-02-15 12:41:29</FECHA>
+          <ESTABLECIMIENTO>Hostal el Garrotal</ESTABLECIMIENTO>
+          <PRECIOPORDOSIS>0.16</PRECIOPORDOSIS>
+          <OPERACION>Venta</OPERACION>
+          <ESTADO>1</ESTADO>
+          <BONOS>0</BONOS>
+        </REQUEST>------------------------------\r\nTerminal=14001&Establecimiento=Hostal el Garrotal&Operacion=Venta&Importe=20&Creditos=904&TotalDosisA=3&TotalDosisB=1&ParcialDosisA=3&ParcialDosisB=1&Caja=145.00<?xml version='1.0' encoding='UTF-8'?>
+        <REQUEST type = 'RESP' mode='' >
+          <TERMINAL>14001</TERMINAL>
+          <FECHA>2023-02-15 12:41:50</FECHA>
+          <ESTABLECIMIENTO>Hostal el Garrotal</ESTABLECIMIENTO>
+          <PRECIOPORDOSIS>0.16</PRECIOPORDOSIS>
+          <OPERACION>Venta</OPERACION>
+          <ESTADO>1</ESTADO>
+          <BONOS>0</BONOS>
+        </REQUEST>------------------------------\r\nTerminal=14001&Establecimiento=Hostal el Garrotal&Operacion=Venta&Importe=10&Creditos=966&TotalDosisA=3&TotalDosisB=1&ParcialDosisA=3&ParcialDosisB=1&Caja=155.00<?xml version='1.0' encoding='UTF-8'?>
+        <REQUEST type = 'RESP' mode='' >
+          <TERMINAL>14001</TERMINAL>
+          <FECHA>2023-02-15 12:42:00</FECHA>
+          <ESTABLECIMIENTO>Hostal el Garrotal</ESTABLECIMIENTO>
+          <PRECIOPORDOSIS>0.16</PRECIOPORDOSIS>
+          <OPERACION>Venta</OPERACION>
+          <ESTADO>1</ESTADO>
+          <BONOS>0</BONOS>
+        </REQUEST>------------------------------\r\nTerminal=14001&Establecimiento=Hostal el Garrotal&Operacion=Venta&Importe=5&Creditos=998&TotalDosisA=3&TotalDosisB=1&ParcialDosisA=3&ParcialDosisB=1&Caja=160.00<?xml version='1.0' encoding='UTF-8'?>
+        <REQUEST type = 'RESP' mode='' >
+          <TERMINAL>14001</TERMINAL>
+          <FECHA>2023-02-15 12:42:31</FECHA>
+          <ESTABLECIMIENTO>Hostal el Garrotal</ESTABLECIMIENTO>
+          <PRECIOPORDOSIS>0.16</PRECIOPORDOSIS>
+          <OPERACION>Venta</OPERACION>
+          <ESTADO>1</ESTADO>
+          <BONOS>0</BONOS>
+        </REQUEST>------------------------------\r\nTerminal=14001&Establecimiento=Hostal el Garrotal&Operacion=Venta&Importe=10&Creditos=1060&TotalDosisA=3&TotalDosisB=1&ParcialDosisA=3&ParcialDosisB=1&Caja=170.00<?xml version='1.0' encoding='UTF-8'?>
+        <REQUEST type = 'RESP' mode='' >
+          <TERMINAL>14001</TERMINAL>
+          <FECHA>2023-02-15 12:43:04</FECHA>
+          <ESTABLECIMIENTO>Hostal el Garrotal</ESTABLECIMIENTO>
+          <PRECIOPORDOSIS>0.16</PRECIOPORDOSIS>
+          <OPERACION>Venta</OPERACION>
+          <ESTADO>1</ESTADO>
+          <BONOS>0</BONOS>
+        </REQUEST>------------------------------\r\nTerminal=15888&Usuario=Admin&Passwd=@Duetazze2022&Mac=40:22:D8:03:B7:CC------------------------------\r\nTerminal=15888&Establecimiento=Bar cero&Operacion=Cierre diferido&Importe=0&Creditos=0&TotalDosisA=28&TotalDosisB=104&ParcialDosisA=28&ParcialDosisB=104&Caja=60.00<?xml version='1.0' encoding='UTF-8'?>
+        <REQUEST type = 'RESP' mode='' >
+          <TERMINAL>15888</TERMINAL>
+          <FECHA>2023-02-15 22:26:16</FECHA>
+          <ESTABLECIMIENTO>Bar cero</ESTABLECIMIENTO>
+          <PRECIOPORDOSIS>0.22</PRECIOPORDOSIS>
+          <OPERACION>Cierre diferido</OPERACION>
+          <ESTADO>1</ESTADO>
+          <BONOS>0</BONOS>
+        </REQUEST>------------------------------\r\nTerminal=15888&Usuario=Admin&Passwd=@Duetazze2022&Mac=40:22:D8:03:B7:CC------------------------------\r\nTerminal=15888&Establecimiento=Bar cero&Operacion=Cierre diferido&Importe=0&Creditos=0&TotalDosisA=28&TotalDosisB=104&ParcialDosisA=28&ParcialDosisB=104&Caja=60.00<?xml version='1.0' encoding='UTF-8'?>
+        <REQUEST type = 'RESP' mode='' >
+          <TERMINAL>15888</TERMINAL>
+          <FECHA>2023-02-15 22:28:07</FECHA>
+          <ESTABLECIMIENTO>Bar cero</ESTABLECIMIENTO>
+          <PRECIOPORDOSIS>0.22</PRECIOPORDOSIS>
+          <OPERACION>Cierre diferido</OPERACION>
+          <ESTADO>1</ESTADO>
+          <BONOS>0</BONOS>
+        </REQUEST>------------------------------\r\nTerminal=15888&Usuario=Admin&Passwd=@Duetazze2022&Mac=40:22:D8:03:B7:CC------------------------------\r\nTerminal=15888&Usuario=Admin&Passwd=@Duetazze2022&Mac=40:22:D8:03:B7:CC
