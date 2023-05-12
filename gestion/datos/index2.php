@@ -21,6 +21,11 @@ $username = htmlentities($_SESSION['username']);
 if ($username <> "Cafe Duetazze"){
     die();
 }
+
+$terminal = "";
+if (isset($_GET["terminal"])){
+  $terminal = $_GET["terminal"];
+}
 // -------------------------------------------------
             include_once("./config.php");
 
@@ -43,59 +48,87 @@ if ($username <> "Cafe Duetazze"){
             $f = array();
             $f["column"] = "Operacion";
             $f["op"] = "=";
-            $f["value"] = "Cierre Diferido"; // you can use placeholder of column name as value
-            //$f["cellcss"] = "'color':'red' ,'font-weight': 'bold'";
+            $f["value"] = "Cierre Diferido";
             $f["css"] = "'background-color': '#f21d05','color':'white' ,'font-weight': 'bold'"; // css class name
             $f_conditions[] = $f;
 
             $f = array();
             $f["column"] = "Operacion";
             $f["op"] = "=";
-            $f["value"] = "Cierre en Oficina"; // you can use placeholder of column name as value
-            //$f["cellcss"] = "'color':'red' ,'font-weight': 'bold'";
+            $f["value"] = "Cierre en Oficina"; 
             $f["css"] = "'background-color': '#f21d05','color':'white' ,'font-weight': 'bold'"; // css class name
             $f_conditions[] = $f;
 
             $f = array();
             $f["column"] = "Operacion";
             $f["op"] = "=";
-            $f["value"] = "Cierre Caja"; // you can use placeholder of column name as value
-            //$f["cellcss"] = "'color':'red' ,'font-weight': 'bold'";
-            $f["css"] = "'background-color': '#f21d05','color':'white' ,'font-weight': 'bold'"; // css class name
-
+            $f["value"] = "Cierre Caja";
+            $f["css"] = "'background-color': '#f21d01','color':'white' ,'font-weight': 'bold' "; // css class name
+            //$f["class"] = "CierreCaja"; 
             $f_conditions[] = $f;
 
             $f = array();
             $f["column"] = "Operacion";
             $f["op"] = "=";
-            $f["value"] = "Bonos Añadidos"; // you can use placeholder of column name as value
-            //$f["cellcss"] = "'color':'blue' ,'font-weight': 'bold'";
-            $f["class"] = "blue-row"; // css class name
+            $f["value"] = "Descuadre de Contadores"; 
+            $f["css"] = "'background-color': '#000000','color':'red' ,'font-weight': 'bold'"; // css class name
             $f_conditions[] = $f;
 
             $f = array();
             $f["column"] = "Operacion";
             $f["op"] = "=";
-            $f["value"] = "Bonos Consumidos"; // you can use placeholder of column name as value
-            //$f["cellcss"] = "'color':'green' ,'font-weight': 'bold'";
-            $f["class"] = "green-row"; // css class name
+            $f["value"] = "Bonos Añadidos";
+            //$f["class"] = "blue-row"; 
+            $f["css"] = "'background-color': '#C88EEB','color':'white' ,'font-weight': 'bold'"; // css class name
             $f_conditions[] = $f;
 
             $f = array();
             $f["column"] = "Operacion";
             $f["op"] = "=";
-            $f["value"] = "Cambio de Bonos"; // you can use placeholder of column name as value
+            $f["value"] = "Bonos Consumidos"; 
+            $f["class"] = "green-row"; 
+            $f_conditions[] = $f;
+
+            $f = array();
+            $f["column"] = "Operacion";
+            $f["op"] = "=";
+            $f["value"] = "Cambio de Bonos";
             $f["css"] = "'color':'#353632' ,'background-color':'#e9f797' ,'font-weight': 'bold'";
-            //$f["cellcss"] = "'color':'green' ,'font-weight': 'bold'";
-            //$f["class"] = "red-row"; // css class name
             $f_conditions[] = $f;
 
             $f = array();
             $f["column"] = "Operacion";
             $f["op"] = "=";
-            $f["value"] = "Reset - Unidad Puesta a 0"; // you can use placeholder of column name as value
-            //$f["cellcss"] = "'color':'green' ,'font-weight': 'bold'";
-            $f["css"] = "'background-color': '#206301','color':'white' ,'font-weight': 'bold'"; // css class name
+            $f["value"] = "Nombre  Establecido"; 
+            $f["css"] = "'color':'#FFFFFF' ,'background-color':' #000080' ,'font-weight': 'bold'";
+            $f_conditions[] = $f;
+
+            $f = array();
+            $f["column"] = "Operacion";
+            $f["op"] = "=";
+            $f["value"] = "Cambio de Nombre";
+            $f["css"] = "'color':'#FFFFFF' ,'background-color':'#8CAB45' ,'font-weight': 'bold'";
+            $f_conditions[] = $f;
+
+            $f = array();
+            $f["column"] = "Operacion";
+            $f["op"] = "=";
+            $f["value"] = "Precio Establecido"; 
+            $f["css"] = "'color':'#FFFFFF' ,'background-color':'#B07F3A' ,'font-weight': 'bold'";
+            $f_conditions[] = $f;
+
+            $f = array();
+            $f["column"] = "Operacion";
+            $f["op"] = "=";
+            $f["value"] = "Cambio de Precio";
+            $f["css"] = "'color':'#FFFFFF' ,'background-color':'#BA5B36' ,'font-weight': 'bold'";
+            $f_conditions[] = $f;
+
+            $f = array();
+            $f["column"] = "Operacion";
+            $f["op"] = "=";
+            $f["value"] = "Reset - Unidad Puesta a 0";
+             $f["css"] = "'background-color': '#206301','color':'white' ,'font-weight': 'bold'"; // css class name
             $f_conditions[] = $f;
 
 
@@ -145,10 +178,13 @@ if ($username <> "Cafe Duetazze"){
 
 
             $g->set_options($opt);
-
-            //$g->select_command = "SELECT * from journal where Date between '$xdatefrom' and '$xdateto'";
-            $g->select_command = "SELECT journal.*, datos.shop from journal inner join datos on journal.terminal = datos.terminal";
-
+            if ($terminal == ""){
+                $g->select_command = "SELECT journal.*, datos.shop from journal inner join datos on journal.terminal = datos.terminal";
+            }
+            else 
+            {
+              $g->select_command = "SELECT journal.*, datos.shop from journal inner join datos on journal.terminal = datos.terminal where journal.terminal = '$terminal'";
+            }
             // set database table for CRUD operations
             $g->table = "journal";
 
@@ -361,7 +397,7 @@ function pre_render($data)
 	$rs = $rs[0];
 	foreach($data["params"] as &$d)
 	{
-		$d["total_Cierres"] = $rs["s"];
+		$d["total_Cierres"] = abs($rs["s"]);
 	}
 
   $swhere = "where journal.Operacion = 'Venta' "  .$_SESSION["jqgrid_list1_filter"]  ;
@@ -428,7 +464,6 @@ function render_pdf($param)
 <html lang="en" dir="ltr">
 	<head>
 
-
    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <!-- Incompatibilidad entre bootstrap y el selector de fechas datepicker
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
@@ -442,13 +477,12 @@ function render_pdf($param)
 		<script src="./lib/js/jqgrid/js/jquery.jqGrid.min.js" type="text/javascript"></script>
 		<script src="./lib/js/themes/jquery-ui.custom.min.js" type="text/javascript"></script>
 		<!-- these css and js files are required by php grid -->
-
+    <link rel="stylesheet" href="./css/estilos.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js" type="text/javascript"></script>
   	<link rel="stylesheet" type="text/css" media="screen" href="https://cdn.rawgit.com/tamble/jquery-ui-daterangepicker/0.5.0/jquery.comiseo.daterangepicker.css"></link>
   	<script src="https://cdn.rawgit.com/tamble/jquery-ui-daterangepicker/0.5.0/jquery.comiseo.daterangepicker.min.js" type="text/javascript"></script>
 
 
-    <link rel="stylesheet" href="./css/estilos.css">
 
 		<meta charset="utf-8">
 		<title>Movimiento de terminales</title>
@@ -546,10 +580,10 @@ Suma de totales
             // sum of displayed result
             sum = grid.jqGrid('getCol', 'Importe', false, 'sum'); // 'sum, 'avg', 'count' (use count-1 as it count footer row).
 
-            // suma de importes de los errores
+            // suma de importes de los cierres
             sum_Cierres = grid.jqGrid('getCol', 'total_Cierres')[0];
 
-            // suma del total de las recargas
+            // suma del total de las ventas
             sum_Recargas = grid.jqGrid('getCol', 'total_Recargas')[0];
 
             // numero de registros

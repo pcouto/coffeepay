@@ -51,7 +51,7 @@ img{
     padding-bottom: 20px;
     padding-left: 20px;
     font-size: 16px;
-    color: hotpink  ;
+    color: rgb(201, 201, 201)  ;
     display: flex;
     text-decoration: none;
   }
@@ -61,20 +61,20 @@ img{
     font-size: 14px;
   }
 
-  tr.CierreCaja
+  tr.red-row
   {
     font-size: 24px;
     font-weight: 900;
-    color: rgb(126, 96, 96);
+    color: red;
     background: rgb(249, 221, 200);
   }
-  tr.BonosAnadidos
+  tr.blue-row2
   {
     font-size: 24px;
     color: blue;
     background: rgb(200, 218, 245);
   }
-  tr.BonosConsumidos
+  tr.green-row
   {
     font-size: 24px;
     color: green;

@@ -6,12 +6,11 @@
 
 
       function Reclog($StringToRecord){
-        $myfile = fopen("data.txt", "a") or die("Unable to open file!");
+        $myfile = fopen("Alive.txt", "a") or die("Unable to open file!");
         $txt = "nueva llamada";
         fwrite($myfile, $StringToRecord);
         fwrite($myfile, PHP_EOL);
       }
-
 
       $Posted = "";
       foreach ($_POST as $key => $value) {
@@ -98,6 +97,9 @@
         $bonos = $row ['Bonos'];
         $command = $row['Command'];
         $cmdvalue = $row['CmdValue'];
+        $RegTotalDosisA = $row['TotalDosisA'];
+        $RegTotalDosisB = $row['TotalDosisB'];
+
 
           date_default_timezone_set('Europe/Madrid');
           echo "{";
@@ -111,9 +113,16 @@
           echo '"cmdvalue" : "'.$cmdvalue.'"';
           echo "}";
 
+
+
+
         /* Guardamos el lastAlive*/
-        $Sql = "update datos set  Alive = '".date('Y-m-d H:i:s')."', Command = '', CmdValue = 0  where terminal = '$terminal'";
+        
+        $Sql = "UPDATE datos SET  Alive = '".date('Y-m-d H:i:s')."', Command = '', CmdValue = 0, Creditos = '$Creditos', Saldo = '$Caja', TotalDosisA = '$TotalDosisA', TotalDosisB = '$TotalDosisB', ParcialDosisA = '$ParcialDosisA', ParcialDosisB = '$ParcialDosisB'  where terminal = '$terminal'";
+        
         $Result = mysqli_query($conexion, $Sql);
+        
+
 
         /*Anotamos los Bonos como Recibidos. */
         if ($bonos <>0){
@@ -122,14 +131,16 @@
             values
             ('".date('Y-m-d H:i:s')."','$terminal','$establecimiento','Bonos Consumidos','$bonos Bonos','0.00 €','$ActualCredits','$TotalDosisA','$TotalDosisB','$ParcialDosisA','$ParcialDosisB','$Caja-$cmdvalue')";
             $Result = mysqli_query($conexion, $Sql);
-            reclog ($Sql);
-
             $Sql = "Update datos set Bonos = 0 where terminal = '$terminal'";
             $Result = mysqli_query($conexion, $Sql);
-
           }
 
-
+         if ($TotalDosisA<$RegTotalDosisA or $TotalDosisB<$RegTotalDosisB) {
+            $Sql = "insert into journal (Fecha, Terminal, Establecimiento, Operacion, Descripcion, Importe , Creditos, TotalDosisA, TotalDosisB, ParcialDosisA, ParcialDosisB, Caja)
+            values
+            ('".date('Y-m-d H:i:s')."','$terminal','$establecimiento','Descuadre de Contadores','A: $RegTotalDosisA ->$TotalDosisA B: $RegTotalDosisB->$TotalDosisB ','0.00 €','$Creditos','$TotalDosisA','$TotalDosisB','$ParcialDosisA','$ParcialDosisB','$Caja')";
+            $Result = mysqli_query($conexion, $Sql);
+         }
       // Funcion anulada, la envia el procesador mediante peticion.php, sino hay duplicidades
 
         //Anotamos el cierre de caja
@@ -139,7 +150,8 @@
           values
           ('".date('Y-m-d H:i:s')."','$terminal','$establecimiento','Cierre realizado','$bonos Bonos','0.00 €','$ActualCredits','$TotalDosisA','$TotalDosisB','$ParcialDosisA','$ParcialDosisB','$Caja-')";
           $Result = mysqli_query($conexion, $Sql);
-          reclog ($Sql);
+      
+          
 
           $Sql = "Update datos set Bonos = 0 where terminal = '$terminal'";
           $Result = mysqli_query($conexion, $Sql);
@@ -150,6 +162,5 @@
         mysqli_free_result($result);
           /* cerrar la conexión */
         mysqli_close($conexion);
-
 
  ?>

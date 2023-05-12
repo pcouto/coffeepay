@@ -3,6 +3,8 @@
       include_once '../../login/includes/db_connect.php';
       include_once '../../login/includes/functions.php';
 
+      $Version = "3.03 11/05/2023";
+
       date_default_timezone_set('Europe/Madrid'); 
 
       sec_session_start();
@@ -130,7 +132,7 @@
 
             $e["on_update"] = array("update_terminal", null, true);
             $e["on_after_update"] = array("after_update", null, true);
-
+            $e["js_on_load_complete"] = "grid_onload";
            // $e["js_on_select_row"] = "select_row";
 
             $g->set_events($e);
@@ -138,12 +140,13 @@
             //$g->select_command = "SELECT * from journal where Date between '$xdatefrom' and '$xdateto'";
             //$g->select_command = "SELECT journal.*, datos.shop from journal inner join datos on journal.terminal = datos.terminal  where journal.terminal = '$userterminal'";
             if ($terminal == ""){
-              $g->select_command = "SELECT * from datos";
+              $g->select_command = "SELECT * from datos where terminal <> '000001'" ;
             }
             else {
-              $g->select_command = "SELECT * from datos where terminal = '".$terminal."'";
+              $g->select_command = "SELECT * from datos where terminal = '".$terminal."' and terminal <> '000001'";
             }
 
+           
 
             // set database table for CRUD operations
             $g->table = "datos";
@@ -166,18 +169,36 @@
              Definimos Las Columnas
             ****************************************************************************/
 
-            $col = array();
+            /*$col = array();
+            $col["title"] = "Id";
+            $col["name"] = "Id";
+            $col["width"] = "15";
+            $col["hidden"] = true;
+            $cols[] = $col;*/
 
 
             $col = array();
             $col["title"] = "Terminal";
             $col["name"] = "Terminal";
             $col["width"] = "15";
-            $col["hidden"] = false;
-            $col["show"] = array("list"=>true, "add"=>true, "edit"=>true, "view"=>true, "bulkedit"=>false);
+            $col["hidden"] = true;
+            //$col["show"] = array("list"=>true, "add"=>true, "edit"=>true, "view"=>true, "bulkedit"=>false);
             $col["editrules"]["readonly"] = true;
+            //$col["link"] = "index2.php?terminal={Terminal}";
             $cols[] = $col;
 
+            // CpTerminal es copia de Terminal, y se hace para evitrar errores en el link a la hora de actualizar en after_update, ya qye terminal es el index y crea conflicto con el link.
+            $col = array();
+            $col["title"] = "Terminal";
+            $col["name"] = "CpTerminal";
+            $col["width"] = "15";
+            $col["hidden"] = true;
+            $col["show"] = array("list"=>true, "add"=>true, "edit"=>true, "view"=>true, "bulkedit"=>false);
+            $col["editrules"]["readonly"] = true;
+            $col["link"] = "index2.php?terminal={Terminal}";
+            $cols[] = $col;
+
+            $col = array();
             $col["title"] = "Establecimiento";
             $col["name"] = "Establecimiento";
             $col["width"] = "40";
@@ -186,6 +207,7 @@
             $col["align"] = "left";
             $col["show"] = array("list"=>true, "add"=>true, "edit"=>true, "view"=>true, "bulkedit"=>false);
             $col["editable"] = true;
+            //$col["link"] = "index2.php?terminal={Terminal}";
             $col["editrules"]["readonly"] = false;
             $cols[] = $col;
 
@@ -196,7 +218,7 @@
             $col["width"] = "40";
             $col["sortable"] = false;
             $col["align"] = "left";
-            $col["hidden"] = false;
+            $col["hidden"] = true;
             $cols[] = $col;
 
 
@@ -206,6 +228,8 @@
             $col["width"] = "40";
             $col["sortable"] = false;
             $col["align"] = "center";
+            $col["hidden"] = true;
+
             $cols[] = $col;
 
             $col = array();
@@ -217,7 +241,7 @@
             $col["editable"] = true;
             //$col["show"] = array("list"=>true, "add"=>true, "edit"=>true, "view"=>true, "bulkedit"=>false);
             $col["editrules"]["readonly"] = false;
-            $col["hidden"] = true;
+            $col["hidden"] = false;
             $cols[] = $col;
 
             $col = array();
@@ -236,6 +260,12 @@
             $col["width"] = "12";
             $col["sortable"] = true;
             $col["editable"] = true;
+            $col["formatter"] = "currency";
+            $col["formatoptions"] = array("prefix" =>'' ,
+                "suffix" => " €",
+                "thousandsSeparator" => ",",
+                "decimalSeparator" => ".",
+                "decimalPlaces" => 2);
             $col["align"] = "right";
 
             $cols[] = $col;
@@ -245,8 +275,13 @@
             $col["name"] = "Saldo";
             $col["width"] = "12";
             $col["sortable"] = true;
-
-            $col["align"] = "center";
+            $col["formatter"] = "currency";
+            $col["formatoptions"] = array("prefix" =>'' ,
+                "suffix" => " €",
+                "thousandsSeparator" => ",",
+                "decimalSeparator" => ".",
+                "decimalPlaces" => 2);
+            $col["align"] = "right";
             $cols[] = $col;
 
             $col = array();
@@ -259,12 +294,58 @@
             $cols[] = $col;
 
             $col = array();
+            $col["title"] = "Total A";
+            $col["name"] = "TotalDosisA";
+            $col["width"] = "12";
+            $col["sortable"] = false;
+            $col["editable"] = false;
+            $col["align"] = "right";
+            $cols[] = $col;
+
+            $col = array();
+            $col["title"] = "Total B";
+            $col["name"] = "TotalDosisB";
+            $col["width"] = "12";
+            $col["sortable"] = false;
+            $col["editable"] = false;
+            $col["align"] = "right";
+            $cols[] = $col;
+
+            $col = array();
+            $col["title"] = "Parcial A";
+            $col["name"] = "ParcialDosisA";
+            $col["width"] = "12";
+            $col["sortable"] = false;
+            $col["editable"] = false;
+            $col["align"] = "right";
+            $cols[] = $col;
+
+            $col = array();
+            $col["title"] = "Parcial B";
+            $col["name"] = "ParcialDosisB";
+            $col["width"] = "12";
+            $col["sortable"] = false;
+            $col["editable"] = false;
+            $col["align"] = "right";
+            $cols[] = $col;
+            $col = array();
+
+            $col = array();
+            $col["title"] = "Creditos";
+            $col["name"] = "Creditos";
+            $col["width"] = "12";
+            $col["sortable"] = false;
+            $col["editable"] = false;
+            $col["align"] = "right";
+            $cols[] = $col;
+            $col = array();
+
             $col["title"] = "PrevData";
             $col["name"] = "PrevData";
             $col["width"] = "12";
             $col["editable"] = true;
             $col["align"] = "right";
-            $col["hidden"] = false;
+            $col["hidden"] = true;
             $cols[] = $col;            
             
             $col = array();
@@ -299,6 +380,16 @@
             $col["title"] = "Actions";
             $col["name"] = "act";
             $cols[] = $col;
+
+          // para los totales
+
+          $col = array();
+          $col["title"] = "Total_Caja";
+          $col["name"] = "Total_Caja";
+          $col["width"] = "40";
+          $col["hidden"] = true;
+          $cols[] = $col;
+
 
 
             $g->set_columns($cols);
@@ -348,37 +439,58 @@ function render_pdf($param)
 }
 
 // Registro de incidencias
-/*
+
 function Reclog($StringToRecord){
-  $myfile = fopen("log.txt", "a") or die("Unable to open file!");
+  $myfile = fopen("Terminales.txt", "a") or die("Unable to open file!");
   fwrite($myfile, $StringToRecord);
   fwrite($myfile, PHP_EOL);
 }
-*/
+
 
 
 // Miramos las diferencias de fechas para mostrar los terminales que llevan mas de 5 dias sin conectarse 
 function filter_display($data)
 {
  foreach($data["params"] as &$d)
-  {
-    $now = time(); // or your date as well
-    $your_date = strtotime($d["Alive"]);
-    $datediff = $now - $your_date;
-    if ($d["Terminal"]<>"000001"){
-      $d["Diff"] = intval($datediff/86400);
-    }
-  }
+      {
+        $now = time(); // or your date as well
+        $your_date = strtotime($d["Alive"]);
+        $datediff = $now - $your_date;
+        // El terminal 000001 es solo para la contraseña del admin
+        if ($d["Terminal"]<>"000001"){
+          $d["Diff"] = intval($datediff/86400);
+        }
+      $d["CpTerminal"] = $d["Terminal"];
+      }
+
+      // Calculamos el saldo total de los terminales 
+      $rows = $_GET["jqgrid_page"] * $_GET["rows"];
+	    $sidx = $_GET['sidx']; // get index row - i.e. user click to sort
+	    $sord = $_GET['sord']; // get the direction
+      global $g;
+
+      // running total
+      //$result = $g->execute_query("SELECT SUM(saldo) as s FROM (SELECT saldo FROM datos ORDER BY $sidx $sord ) AS tmp");
+      $result = $g->execute_query("SELECT SUM(saldo) as s from datos as tmp where terminal <> '000001'");
+      $rs = $result->GetRows();
+      $rs = $rs[0];
+      foreach($data["params"] as &$d)
+      {
+        $d["Total_Caja"] = $rs["s"];
+	    }
+
+
  }
       
 function after_update($data){
       global  $g;
-      $Terminal = $data["Terminal"];
+     
+      $Terminal = strip_tags($data["Terminal"]);
       $PPD=  $data["params"]["PrecioPorDosis"];
       $Bonos =  $data["params"]["Bonos"];
       $Establecimiento = $data["params"]["Establecimiento"];
       $PrevData = '[{"PPD": '.$PPD.',"Bonos": '.$Bonos.', "Est": "'.$Establecimiento.'"}]';
-      $Sql = "UPDATE Datos SET PrevData = '$PrevData' where Terminal = '$Terminal'";
+      $Sql = "UPDATE datos SET PrevData = '$PrevData' where Terminal = '$Terminal'";
       $result = $g->execute_query($Sql);
       
 }
@@ -388,8 +500,7 @@ function update_terminal($data)
     
       global  $g;
       global $username;
-      
-      $Terminal = $data["Terminal"];
+      $Terminal = strip_tags($data["Terminal"]);
       $Establecimiento =  $data["params"]["Establecimiento"];
       $Bonos =  $data["params"]["Bonos"];
       $PrecioPorDosis =  $data["params"]["PrecioPorDosis"];
@@ -398,7 +509,6 @@ function update_terminal($data)
       $PrevBonos = $PrevData[0]->{"Bonos"} ;
       $PrevEstablecimiento = $PrevData[0]->{"Est"} ;
       $PrevPrecioPorDosis = $PrevData[0]->{"PPD"} ;
-      
       if ($PrevBonos<>$Bonos){
         if ($PrevBonos<>0) 
           {
@@ -419,7 +529,7 @@ function update_terminal($data)
         if ($PrevPrecioPorDosis<>0) 
           {
             $Desc = "Cambio de Precio";
-            $Detail = "$PrevPrecioPorDosis -> $PrecioPorDosis Bonos"; 
+            $Detail = "$PrevPrecioPorDosis -> $PrecioPorDosis"; 
           }
         else
           {
@@ -434,7 +544,7 @@ function update_terminal($data)
         if ($PrevEstablecimiento<>"") 
           {
             $Desc = "Cambio de Nombre";
-            $Detail = "$PrevEstablecimiento -> $Establecimiento"; 
+            $Detail = "Antes :$PrevEstablecimiento"; 
           }
         else
           {
@@ -487,6 +597,21 @@ function update_terminal($data)
 
       <script type="text/javascript">
         var voldbonos=0;
+        
+        /***********************************************************************
+        Suma de totales
+        *************************************************************************/
+          // e.g. to show footer summary
+          function grid_onload()
+          {
+            
+            var grid = $("#list1");
+            // suma de importes de las cajas
+            sum_Caja = grid.jqGrid('getCol', 'Total_Caja')[0];
+            // 4th arg value of false will disable the using of formatter
+             grid.jqGrid('footerData','set', { Telefono: 'Total Suma Caja: ',Saldo: sum_Caja +' €'}, false);
+          }
+        
         function do_onselect(id)
         {
             
@@ -539,12 +664,11 @@ function update_terminal($data)
 
 	</head>
 	<body>
-<script>
 
-</script>
 
     <header id="pageHeader">
-          <p>Listado de terminales.</p>
+          <p>Listado de terminales.<br></p>
+          
     </header>
     <logo id="pageLogo">
         CAFE DUETAZZE
@@ -554,9 +678,9 @@ function update_terminal($data)
     </logo>
 
     <article id="mainArticle"><?php echo $out?></article>
+    
     <nav id="mainNav">
       <p>Menú</p>
-
       <div class = "col" id="menulinks">
         <a class="text-white" href="index2.php" >Movimientos</a>
         <a class="text-white" href="terminales.php">Terminales</a>
@@ -570,9 +694,10 @@ function update_terminal($data)
             <button type="button" class="text-white btn btn-cancel btn-custom"  onclick = "showModal('cancel')">Inhabilitar</button>
             <button type="button" id = "showmodalcancel" class="text-white btn btn-cancel btn-custom" hidden  data-toggle="modal" data-target="#Mcancel">Inhabilitar</button>
  
-          </div>
+        </div>
        <a><a>
        <a class="text-white" href="usuarios.php">Usuarios</a>
+      
       </div>
 
     </nav>

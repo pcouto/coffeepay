@@ -139,6 +139,7 @@ $username = htmlentities($_SESSION['username']);
             $col["editable"] = true;
             $col["width"] = "50";
             $col["sortable"] = false;
+            $col["sortable"] = true;
             $col["align"] = "left";
             $cols[] = $col;
 
