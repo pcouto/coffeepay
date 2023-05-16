@@ -55,6 +55,14 @@
             $opt["cellcss"] = "'background-color':'#ff851b','color':'white','fontWeight':'bold','opacity':0.4"; 
             $opt_conditions[] = $opt;
 
+
+            $opt = array(); // 
+            $opt["column"] = "DiasSinVisita";
+            $opt["op"] = ">";
+            $opt["value"] = "{VisitDays}"; // you can use placeholder of column name as value
+            $opt["css"] = "'background-color':'blue','color':'white','fontWeight':'bold','opacity':1"; 
+            $opt_conditions[] = $opt;
+
             $opt = array(); // Si el terminal se ha inhabilitado, lo indica
             $opt["column"] = "Estado";
             $opt["target"] = "Terminal";
@@ -62,7 +70,6 @@
             $opt["value"] = 0; // you can use placeholder of column name as value
             //$opt["class"] = "canceled_row"; // css class name
             $opt["css"] = "'background-color':'red','color':'white','fontWeight':'bold'"; // must use (single quote ') with css attr and value
-            
             $opt_conditions[] = $opt;
 
             $opt = array(); // Si tiene bonos pendientes, lo tiene en 
@@ -71,7 +78,6 @@
             $opt["value"] = 0; // you can use placeholder of column name as value
             $opt["cellcss"] = "'background-color':'#32a852','color':'white','fontWeight':'bold','opacity':0.4"; 
             $opt_conditions[] = $opt;
-
 
             $opt = array(); // 
             $opt["column"] = "MoreIcons";
@@ -196,6 +202,7 @@
             $col["show"] = array("list"=>true, "add"=>true, "edit"=>true, "view"=>true, "bulkedit"=>false);
             $col["editrules"]["readonly"] = true;
             $col["link"] = "index2.php?terminal={Terminal}";
+            $col["sortable"] = false;
             $cols[] = $col;
 
             $col = array();
@@ -247,7 +254,7 @@
             $col = array();
             $col["title"] = "Telefono";
             $col["name"] = "Telefono";
-            $col["width"] = "25";
+            $col["width"] = "20";
             $col["sortable"] = false;
             $col["editable"] = true;
             //$col["show"] = array("list"=>true, "add"=>true, "edit"=>true, "view"=>true, "bulkedit"=>false);
@@ -273,7 +280,7 @@
             $col = array();
             $col["title"] = "Saldo";
             $col["name"] = "Saldo";
-            $col["width"] = "12";
+            $col["width"] = "15";
             $col["sortable"] = true;
             $col["formatter"] = "currency";
             $col["formatoptions"] = array("prefix" =>'' ,
@@ -338,8 +345,8 @@
             $col["editable"] = false;
             $col["align"] = "right";
             $cols[] = $col;
-            $col = array();
 
+            $col = array();
             $col["title"] = "PrevData";
             $col["name"] = "PrevData";
             $col["width"] = "12";
@@ -348,6 +355,32 @@
             $col["hidden"] = true;
             $cols[] = $col;            
             
+            $col = array();
+            $col["title"] = "Per.Visita";
+            $col["name"] = "VisitDays";
+            $col["width"] = "12";
+            $col["sortable"] = false;
+            $col["editable"] = true;
+            $col["align"] = "right";
+            $cols[] = $col;
+
+            $col = array();
+            $col["title"] = "Ult. Caja";
+            $col["name"] = "LastCash";
+            $col["formatter"] = "datetime";
+            $col["formatoptions"] = array("srcformat"=>'Y-m-d H:i:s',"newformat"=>'d/m/Y H:i:s',"opts" => array());
+            $col["width"] = "28";
+            $col["align"] = "right";
+            $cols[] = $col; 
+
+            $col = array();
+            $col["title"] = "Dias S/V";
+            $col["name"] = "DiasSinVisita";
+            $col["width"] = "12";
+            $col["hidden"] = false;
+            $col["align"] = "right";
+            $cols[] = $col;
+
             $col = array();
             $col["title"] = "Alive";
             $col["name"] = "Alive";
@@ -363,6 +396,7 @@
             $col["name"] = "Diff";
             $col["width"] = "12";
             $col["hidden"] = false;
+            $col["sortable"] = false;
             $col["align"] = "right";
             $cols[] = $col;
 
@@ -452,7 +486,7 @@ function Reclog($StringToRecord){
 function filter_display($data)
 {
  foreach($data["params"] as &$d)
-      {
+      {  // Calculo de los días sin conexion.
         $now = time(); // or your date as well
         $your_date = strtotime($d["Alive"]);
         $datediff = $now - $your_date;
@@ -461,6 +495,15 @@ function filter_display($data)
           $d["Diff"] = intval($datediff/86400);
         }
       $d["CpTerminal"] = $d["Terminal"];
+       
+      // Calculo de los dias sin visita.
+        $Last_Visit_Date = strtotime($d["LastCash"]);
+        $datediff = $now - $Last_Visit_Date;
+        // El terminal 000001 es solo para la contraseña del admin
+        if ($d["Terminal"]<>"000001"){
+            $d["DiasSinVisita"] = intval($datediff/86400);
+        }
+        
       }
 
       // Calculamos el saldo total de los terminales 
@@ -607,9 +650,16 @@ function update_terminal($data)
             
             var grid = $("#list1");
             // suma de importes de las cajas
-            sum_Caja = grid.jqGrid('getCol', 'Total_Caja')[0];
+            
+            sum_Caja = Number(grid.jqGrid('getCol', 'Total_Caja')[0]);
+             
             // 4th arg value of false will disable the using of formatter
-             grid.jqGrid('footerData','set', { Telefono: 'Total Suma Caja: ',Saldo: sum_Caja +' €'}, false);
+            
+             grid.jqGrid('footerData','set', { LastCash: 'Total Caja : '+ Intl.NumberFormat('eu-EU', { style: 'currency', currency: 'EUR' }).format(sum_Caja)}, false);
+             
+             
+
+
           }
         
         function do_onselect(id)

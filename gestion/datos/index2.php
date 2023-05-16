@@ -590,8 +590,7 @@ Suma de totales
             c = grid.jqGrid('getCol', 'Id', false, 'sum');
 
             // 4th arg value of false will disable the using of formatter
-            grid.jqGrid('footerData','set', { Notes: 'Ventas : '+ sum_Recargas +' € / Cierres : ' + sum_Cierres +' €'}, false);
-
+            grid.jqGrid('footerData','set', { Notes: 'Ventas : '+ Intl.NumberFormat('eu-EU', { style: 'currency', currency: 'EUR' }).format(sum_Recargas)+' / Cierres : '+ Intl.NumberFormat('eu-EU', { style: 'currency', currency: 'EUR' }).format(sum_Cierres)}, false);
           };
 
 </script>

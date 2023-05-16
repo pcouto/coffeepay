@@ -1,0 +1,11 @@
+A
+1
+2
+3
+Previo :
+A
+1
+2
+3
+Previo :
+UPDATE datos SET numoperations = numoperations + 1, Creditos = '0', Saldo = '50', TotalDosisA = '7999', TotalDosisB = '9000', ParcialDosisA = '150', ParcialDosisB = '75'  where terminal = '14001'

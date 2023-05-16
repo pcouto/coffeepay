@@ -32,21 +32,21 @@ date_default_timezone_set('Europe/Madrid');
       if(!$Xml_Post) {die("error de post");}
 
 
+      function Reclog($StringToRecord){
       /* Guardamos el XML en la carpeta correspondiente y analizamos su contenido*/
       $YearDir = date('Y');
       $MonthDir = date ('m');
       $DayDir = date ('d');
       if (!file_exists('./received_'.$YearDir)) { mkdir('./received_'.$YearDir, 0777, true); }
       if (!file_exists('./received_'.$YearDir.'/'.$MonthDir)) { mkdir('./received_'.$YearDir.'/'.$MonthDir, 0777, true); }
-      //if (!file_exists('./received_'.$YearDir.'/'.$MonthDir.'/'.$DayDir)) { mkdir('./received_'.$YearDir.'/'.$MonthDir.'/'.$DayDir, 0777, true); }
-
-      $xml_file = './received_'.$YearDir.'/'. $MonthDir .'/'. 'received_xml_' . date('Y_m_d') . '.txt';
-      $fh       = fopen( $xml_file, 'a') or die("error creando el fichero");
-      fwrite($fh, str_repeat ("-" ,30).'\r\n');
-      fwrite($fh, $Xml_Post);
+        $xml_file = './received_'.$YearDir.'/'. $MonthDir .'/'. 'received_xml_' . date('Y_m_d') . '.txt';        $myfile = fopen("Alive.txt", "a") or die("Unable to open file!");
+        $fh       = fopen( $xml_file, 'a') or die("error creando el fichero"); 
+        $txt = "nueva llamada";
+        fwrite($fh, $StringToRecord);
+        fwrite($fh, PHP_EOL);
+      }
 
       // Leemos los datos del POST
-
 
       $Terminal ="--";
       if (isset ($_POST["Terminal"]))
@@ -157,6 +157,8 @@ date_default_timezone_set('Europe/Madrid');
       $RecordedCity =  $Row["City"];
       $RecordedCountry =  $Row["Country"];
       $NumOperations = $Row["Numoperations"];
+      $RegTotalDosisA = $Row["TotalDosisA"];
+      $RegTotalDosisB = $Row["TotalDosisB"];
       $PrecioPorDosis = $Row["PrecioPorDosis"];
       $Bonos= $Row["Bonos"];
 
@@ -191,29 +193,37 @@ date_default_timezone_set('Europe/Madrid');
           <BONOS>$Bonos</BONOS>
         </REQUEST>";
 
-
-        fwrite($fh, $StrXML);
-
       if ($Operacion=="Venta"){
         $Descripcion =    "Precio : " .$PrecioPorDosis . " € por dosis";
       }
-
       
-      if ($Operacion=="Cierre diferido"){
-        $Descripcion =    "Cierre en Oficina";
+      $LastCash = "";
+      if ($Operacion=="Cierre diferido" or $Operacion=="Cierre en Oficina"){
+        //$Descripcion = "Cierre en Oficina";
+        $LastCash = "lastcash = '".date('Y-m-d H:i:s')."',"; //  Para el caso de que sea un cierre de caja, anotamos tambien el cierre en el campo Lastcash de datos.
       }
-
-      $Sql = "Insert into journal (Fecha,Terminal,Establecimiento,Operacion,Descripcion,Importe,Creditos,TotalDosisA,TotalDosisB,ParcialDosisA,ParcialDosisB,Caja,Notes)
+      
+       $Sql = "Insert into journal (Fecha,Terminal,Establecimiento,Operacion,Descripcion,Importe,Creditos,TotalDosisA,TotalDosisB,ParcialDosisA,ParcialDosisB,Caja,Notes)
               values
               ('".date('Y-m-d H:i:s')."', '$Terminal','$Establecimiento','$Operacion','$Descripcion','$Importe','$Creditos',$TotalDosisA,$TotalDosisB,$ParcialDosisA,$ParcialDosisB,'$Caja','$Notes' )";
 
 
       $Result = mysqli_query($conexion, $Sql);
+      
+      if ($TotalDosisA<$RegTotalDosisA or $TotalDosisB<$RegTotalDosisB) {
+        
+        $Sql = "insert into journal (Fecha, Terminal, Establecimiento, Operacion, Descripcion, Importe , Creditos, TotalDosisA, TotalDosisB, ParcialDosisA, ParcialDosisB, Caja)
+        values
+        ('".date('Y-m-d H:i:s')."','$Terminal','$Establecimiento','Descuadre de Contadores','A: $RegTotalDosisA ->$TotalDosisA B: $RegTotalDosisB->$TotalDosisB ','0.00 €','$Creditos','$TotalDosisA','$TotalDosisB','$ParcialDosisA','$ParcialDosisB','$Caja')";
+        
+        $Result = mysqli_query($conexion, $Sql);
 
-      $Sql = "update datos set numoperations = numoperations + 1, saldo = '$Caja', lastopdate = '".date('Y-m-d H:i:s')."' where terminal = '$Terminal'";
+      }
+   
+     $Sql = "UPDATE datos SET numoperations = numoperations + 1, Creditos = '$Creditos', Saldo = '$Caja', TotalDosisA = '$TotalDosisA', TotalDosisB = '$TotalDosisB', ParcialDosisA = '$ParcialDosisA', ParcialDosisB = '$ParcialDosisB'  where terminal = '$Terminal'";
+     
+     $Result = mysqli_query($conexion, $Sql);
 
-      $Result = mysqli_query($conexion, $Sql);
-
-      echo ($StrXML);
+     echo ($StrXML);
 
  ?>

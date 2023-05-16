@@ -36,25 +36,11 @@ $username = htmlentities($_SESSION['username']);
 
 
             /*************************************************************************************
-              aqui los condicionantes
-            **************************************************************************************/
-            /*$f = array();
-            $f["column"] = "AnswerCode";
-            $f["op"] = ">";
-            $f["value"] = 0; // you can use placeholder of column name as value
-            //$f["cellcss"] = "'color':'red' ,'font-weight': 'bold'";
-            $f["class"] = "red-row"; // css class name
-            $f_conditions[] = $f;
-
-            $g->set_conditional_css($f_conditions);*/
-
-
-            /*************************************************************************************
               aqui las opciones del grid
             **************************************************************************************/
             $opt["height"] = "90%";
             $opt["width"] = 800;
-            //$opt["caption"] = "Listado de Terminales ($username)";
+            $opt["caption"] = "Listado de Usuarios ($username)";
             $opt["altRows"] = true;
             $opt["altclass"] = "myAltRowClass";
             $opt["hidegrid"] = false;
@@ -68,43 +54,12 @@ $username = htmlentities($_SESSION['username']);
             $opt["rowNum"] = 18;
             $opt["persistsearch"] = false;
             $opt["toolbar"] = "bottom";
-            $opt["edit_options"] = array('width'=>'420');
-
-            $grid["export"] = array("format"=>"pdf", "filename"=>"my-file", "heading"=>"Detalle de los usuarios", "orientation"=>"landscape", "paper"=>"a4");
-            $grid["export"]["range"] = "filtered"; // or "all"
-            $grid["export"]["paged"] = "1";
-
-
-
-            $opt["search_options"]["tmplNames"] = array("Buscar Entre Fechas", "Importes");
-            $opt["search_options"]["tmplFilters"] = array(
-              array(
-                "groupOp" => "AND",
-                "rules" => array (
-                        array("field"=>"Date", "op"=>"gt", "data"=>"Desde"),
-                          array("field"=>"Date", "op"=>"lt", "data"=>"Hasta"),
-                        )
-                      ),
-                      array(
-                        "groupOp" => "AND",
-                        "rules" => array (
-                        array("field"=>"Importe", "op"=>"eq", "data"=>"5")
-                        )
-                      )
-                    );
+            $opt["edit_options"] = array('width'=>'620');
 
 
             $g->set_options($opt);
 
-            $e["on_update"] = array("update_terminal", null, true);
-            $e["on_select"] = array("select_terminal", null, true);
-
-
-
             $g->set_events($e);
-
-            //$g->select_command = "SELECT * from journal where Date between '$xdatefrom' and '$xdateto'";
-            //$g->select_command = "SELECT journal.*, datos.shop from journal inner join datos on journal.terminal = datos.terminal  where journal.terminal = '$userterminal'";
 
               $g->select_command = "SELECT * from usuarios ";
 
@@ -130,15 +85,21 @@ $username = htmlentities($_SESSION['username']);
             /***************************************************************************
              Definimos Las Columnas
             ****************************************************************************/
-
             $col = array();
+            $col["title"] = "Id";
+            $col["name"] = "Id";
+            $col["editable"] = false  ;
+            $col["width"] = "50";
+            $col["sortable"] = true;
+            $col["align"] = "left";
+            $cols[] = $col;
+        
 
             $col = array();
             $col["title"] = "Usuario";
             $col["name"] = "Usuario";
             $col["editable"] = true;
             $col["width"] = "50";
-            $col["sortable"] = false;
             $col["sortable"] = true;
             $col["align"] = "left";
             $cols[] = $col;

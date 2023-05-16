@@ -10,14 +10,14 @@
         $txt = "nueva llamada";
         fwrite($myfile, $StringToRecord);
         fwrite($myfile, PHP_EOL);
+        fclose($myfile);
       }
 
-      $Posted = "";
-      foreach ($_POST as $key => $value) {
-      $Posted = $Posted . "\t". htmlspecialchars($key)." ->".htmlspecialchars($value).PHP_EOL;
-    }
-
-      fclose($myfile);
+      //$Posted = "";
+      //foreach ($_POST as $key => $value) {
+      //$Posted = $Posted . "\t". htmlspecialchars($key)." ->".htmlspecialchars($value).PHP_EOL;
+      //}
+      
 
       // Obtenemos las variable Posteadas.
         //Terminal.
@@ -77,13 +77,12 @@
         }
 
       $Sql = "Select * from datos where Terminal = '" . $terminal . "'";
-
+     
       $result = mysqli_query ($conexion,$Sql);
 
       if (mysqli_affected_rows($conexion)==0) {
         // Hay alguien intentando acceder al sistema?
         // Por que llega una peticion de un terminal que no existe?
-
           echo "KO, No existe el terminal ".$terminal;
           die();
       }
@@ -112,9 +111,6 @@
           echo '"command" : "'.$command.'",';
           echo '"cmdvalue" : "'.$cmdvalue.'"';
           echo "}";
-
-
-
 
         /* Guardamos el lastAlive*/
         
