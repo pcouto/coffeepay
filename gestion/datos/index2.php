@@ -1,6 +1,6 @@
 <?php
 
-// Version 2.20 07/01/2024
+// Version 2.20 08/01/2024
 // Añadidir Anotacion Manual en el diario de movimientos para poder incorporar notas propias
 
 
