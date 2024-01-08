@@ -130,6 +130,10 @@
         
             
             });
+
+    function findTerm(){
+        document.getElementById("submit").click();
+    }
   </script>
 
 
@@ -147,12 +151,12 @@
           <div style="color: var(--bs-gray-600);border-radius: -17px;border: 10px none var(--bs-indigo);margin-top: 23px;text-align: center;">
               <p  id = "cartel" style="margin: 0px;color: #878787;text-align: center;font-weight: bold;font-size: 20px;background: #e6e6e6;border-radius: -2px;height: 33.5px;border-width: 0px;border-color: #0a0a0a;width: 100%;box-shadow: 0px 2px 17px;">Cierre</p>
               <form action ="" method = "POST" autocomplete="off">
-                  <div class="table-responsive" style="margin-top: 22px;">
+                  <div  style="margin-top: 22px;">
                       <table class="table">
                           <thead style="margin-top: 4px;">
                               <tr style="margin-top: 0px;">
                                   <th style="text-align: left;margin-left: 16px;"><label class="form-label" style="text-align: left;font-weight: bold;margin-top: 7px;margin-left: 16px;">Terminal</label></th>
-                                  <th><input class="form-control"  type="text" id= "terminal" name="terminal" style="margin-left: -19px;border-width: 1px;width: 200px;" placeholder="Numero de Terminal" autofocus="" inputmode="numeric" minlength="5" maxlength="5" ></th>
+                                  <th><input class="form-control"  type="text" id= "terminal" name="terminal" style="margin-left: -19px;border-width: 1px;width: 200px;" placeholder="Numero de Terminal" autofocus="" inputmode="numeric" minlength="5" maxlength="5"   ></th>
                               </tr>
                           </thead>
                           <tbody>
@@ -167,7 +171,7 @@
                           </tbody>
                       </table>
                   </div>
-                  <button class="btn btn-primary" type="submit" style="margin-top: 17px;width: 193.5px;box-shadow: 3px 4px 6px rgb(57,56,56);">Enviar</button>
+                  <button id = "submit" class="btn btn-primary" type="submit" style="margin-top: 17px;width: 193.5px;box-shadow: 3px 4px 6px rgb(57,56,56);">Enviar</button>
               </form>
           </div>
       </div>

@@ -1,18 +1,2 @@
-01-05-2023 20:43:17->{"terminal":"14001","importe":"65"}
-01-05-2023 20:43:17->Json decodificado correctamente
-01-05-2023 20:43:17->Terminal : 14001
-01-05-2023 20:44:11->{"terminal":"14001","importe":"60"}
-01-05-2023 20:44:11->Json decodificado correctamente
-01-05-2023 20:44:11->Terminal : 14001
-01-05-2023 20:52:02->{"terminal":"141001","importe":"10"}
-01-05-2023 20:52:02->Json decodificado correctamente
-01-05-2023 20:52:02->Terminal : 141001
-01-05-2023 21:09:13->{"terminal":"141001","importe":"4"}
-01-05-2023 21:09:13->Json decodificado correctamente
-01-05-2023 21:09:13->Terminal : 141001
-01-05-2023 21:26:45->{"terminal":"14005","importe":"10"}
-01-05-2023 21:26:45->Json decodificado correctamente
-01-05-2023 21:26:45->Terminal : 14005
-01-05-2023 21:27:11->{"terminal":"141001","importe":"15"}
-01-05-2023 21:27:11->Json decodificado correctamente
-01-05-2023 21:27:11->Terminal : 141001
+21-05-2023 21:52:57->{"terminal":"141002"}
+21-05-2023 21:52:57->Json decodificado correctamente

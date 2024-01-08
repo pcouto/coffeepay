@@ -19,20 +19,20 @@
 
         $json = file_get_contents('php://input');
 
-        reclog($json);
+        //reclog($json);
 
         $data = json_decode($json);
 
         if (json_last_error() === JSON_ERROR_NONE) {
-          reclog ("Json decodificado correctamente");
+          //reclog ("Json decodificado correctamente");
           }
         else{
-            reclog ("Invalid Json");
+           // reclog ("Invalid Json");
         }
 
         $terminal  = $data->{'terminal'};
 
-        reclog ("Terminal : $terminal");
+        //reclog ("Terminal : $terminal");
 
 
 
@@ -42,10 +42,15 @@
     echo  "la próxima vez que se conecte al servidor.";
    
     $Sql = "update datos set  Command = 'Reset' where terminal = '$terminal'";
-    reclog ($Sql);
+    //reclog ($Sql);
     $Result = mysqli_query($conexion, $Sql);
 
-    reclog ("Result : " .$Result) ;   
+    //reclog ("Result : " .$Result) ;   
+    $Operacion = "Solicitado Reset";
+    $Sql = "INSERT INTO journal (Fecha, Terminal,Establecimiento,Operacion, Descripcion,Importe,Notes) 
+        VALUES ('".date('Y-m-d H:i:s')."','$terminal', '$Establecimiento','$Operacion','$importe ',0,'Usuario : $username')";
+    //$Sql = "update datos set  Command = 'Cierre', CmdValue = '$importe' where terminal = '$terminal'";
+    $Result = mysqli_query($conexion, $Sql);
 
 
 

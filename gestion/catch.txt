@@ -1,0 +1,22 @@
+terminal=15888<br />
+importe=10<br />
+notas=<br />
+cmd=cierre<br />
+2023-05-24 23:05:47
+Terminal : 15888
+Importe : 10
+Notas : 
+Cmd : cierre
+update datos set Command = 'cierre', CmdValue='10'  where Terminal = '15888'
+Sql ejecutado correctemante
+terminal=14004<br />
+importe=45<br />
+notas=<br />
+cmd=cierre<br />
+2024-01-02 23:01:19
+Terminal : 14004
+Importe : 45
+Notas : 
+Cmd : cierre
+update datos set Command = 'cierre', CmdValue='45'  where Terminal = '14004'
+Sql ejecutado correctemante

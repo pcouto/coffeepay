@@ -1,9 +1,10 @@
 <?php
+      // Gestion de Terminales 
       // para login seguro
       include_once '../../login/includes/db_connect.php';
       include_once '../../login/includes/functions.php';
 
-      $Version = "3.03 11/05/2023";
+      $Version = "3.04 22/05/2023";
 
       date_default_timezone_set('Europe/Madrid'); 
 
@@ -103,7 +104,7 @@
             $opt["autowidth"] = true;
             $opt["shrinkToFit"] = true;
             $opt["footerrow"] = true;
-            $opt["rowNum"] =20;
+            $opt["rowNum"] = 5000;
             $opt["persistsearch"] = false;
             $opt["toolbar"] = "bottom";
             $opt["edit_options"] = array('width'=>'420');
@@ -162,7 +163,7 @@
             $g->set_actions(array(
                                     "add"=>false, // allow/disallow add
                                     "edit"=>true, // allow/disallow edit
-                                    "delete"=>true, // allow/disallow delete
+                                    "delete"=>false, // allow/disallow delete
                                     "view"=>false, // allow/disallow view
                                     "refresh" => true, // show/hide refresh button
                                     "search" => "advance", // show single/multi field search condition (e.g. simple or advance)
@@ -179,7 +180,7 @@
             $col["title"] = "Id";
             $col["name"] = "Id";
             $col["width"] = "15";
-            $col["hidden"] = true;
+            $col["hidden"] = false;
             $cols[] = $col;*/
 
 
@@ -187,23 +188,25 @@
             $col["title"] = "Terminal";
             $col["name"] = "Terminal";
             $col["width"] = "15";
-            $col["hidden"] = true;
-            //$col["show"] = array("list"=>true, "add"=>true, "edit"=>true, "view"=>true, "bulkedit"=>false);
+            $col["hidden"] = false;
+            $col["sortable"] = true;
+            $col["show"] = array("list"=>true, "add"=>true, "edit"=>true, "view"=>true, "bulkedit"=>false);
             $col["editrules"]["readonly"] = true;
             //$col["link"] = "index2.php?terminal={Terminal}";
             $cols[] = $col;
 
-            // CpTerminal es copia de Terminal, y se hace para evitrar errores en el link a la hora de actualizar en after_update, ya qye terminal es el index y crea conflicto con el link.
+            /* CpTerminal es copia de Terminal, y se hace para evitrar errores en el link a la hora de actualizar en after_update, ya qye terminal es el index y crea conflicto con el link.
             $col = array();
             $col["title"] = "Terminal";
             $col["name"] = "CpTerminal";
             $col["width"] = "15";
             $col["hidden"] = true;
-            $col["show"] = array("list"=>true, "add"=>true, "edit"=>true, "view"=>true, "bulkedit"=>false);
-            $col["editrules"]["readonly"] = true;
+            //$col["show"] = array("list"=>true, "add"=>true, "edit"=>true, "view"=>true, "bulkedit"=>false);
+            //$col["editrules"]["readonly"] = true;
             $col["link"] = "index2.php?terminal={Terminal}";
             $col["sortable"] = false;
             $cols[] = $col;
+            */
 
             $col = array();
             $col["title"] = "Establecimiento";
@@ -214,7 +217,7 @@
             $col["align"] = "left";
             $col["show"] = array("list"=>true, "add"=>true, "edit"=>true, "view"=>true, "bulkedit"=>false);
             $col["editable"] = true;
-            //$col["link"] = "index2.php?terminal={Terminal}";
+            $col["link"] = "index2.php?terminal={Terminal}";
             $col["editrules"]["readonly"] = false;
             $cols[] = $col;
 
@@ -258,6 +261,15 @@
             $col["sortable"] = false;
             $col["editable"] = true;
             //$col["show"] = array("list"=>true, "add"=>true, "edit"=>true, "view"=>true, "bulkedit"=>false);
+            $col["align"] = "right";
+            $cols[] = $col;
+
+            $col = array();
+            $col["title"] = "Creditos";
+            $col["name"] = "Creditos";
+            $col["width"] = "12";
+            $col["sortable"] = true;
+            $col["editable"] = false;
             $col["align"] = "right";
             $cols[] = $col;
 
@@ -336,15 +348,6 @@
             $col["align"] = "right";
             $cols[] = $col;
             $col = array();
-
-            $col = array();
-            $col["title"] = "Creditos";
-            $col["name"] = "Creditos";
-            $col["width"] = "12";
-            $col["sortable"] = false;
-            $col["editable"] = false;
-            $col["align"] = "right";
-            $cols[] = $col;
 
             $col = array();
             $col["title"] = "PrevData";
@@ -529,6 +532,7 @@ function after_update($data){
       global  $g;
      
       $Terminal = strip_tags($data["Terminal"]);
+      //$Terminal = $data["Terminal"];
       $PPD=  $data["params"]["PrecioPorDosis"];
       $Bonos =  $data["params"]["Bonos"];
       $Establecimiento = $data["params"]["Establecimiento"];
@@ -544,6 +548,7 @@ function update_terminal($data)
       global  $g;
       global $username;
       $Terminal = strip_tags($data["Terminal"]);
+      //$Terminal = $data["Terminal"];
       $Establecimiento =  $data["params"]["Establecimiento"];
       $Bonos =  $data["params"]["Bonos"];
       $PrecioPorDosis =  $data["params"]["PrecioPorDosis"];
@@ -707,7 +712,6 @@ function update_terminal($data)
         }
 
       }	 
-
 
       </script>
 

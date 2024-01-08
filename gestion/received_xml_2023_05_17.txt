@@ -1,0 +1,42 @@
+------------------------------------------------------------
+**17/05/2023 13.05:18
+Terminal=15999&Establecimiento=barbecho&Operacion=Venta&Importe=10&Creditos=31&TotalDosisA=9&TotalDosisB=10&ParcialDosisA=9&ParcialDosisB=10&Caja=25.00
+xml =<?xml version='1.0' encoding='UTF-8'?>
+        <REQUEST type = 'RESP' mode='' >
+          <TERMINAL>15999</TERMINAL>
+          <FECHA>2023-05-17 13:06:18</FECHA>
+          <ESTABLECIMIENTO>barbecho</ESTABLECIMIENTO>
+          <PRECIOPORDOSIS>0.5</PRECIOPORDOSIS>
+          <OPERACION>Venta</OPERACION>
+          <ESTADO>1</ESTADO>
+          <BONOS>0</BONOS>
+        </REQUEST>
+Operacion : Venta
+------------------------------------------------------------
+**17/05/2023 13.05:06
+Terminal=15999&Establecimiento=barbecho&Operacion=Reset - Unidad Puesta a 0&Importe=0&Creditos=0&TotalDosisA=0&TotalDosisB=0&ParcialDosisA=0&ParcialDosisB=0&Caja=0.00
+xml =<?xml version='1.0' encoding='UTF-8'?>
+        <REQUEST type = 'RESP' mode='' >
+          <TERMINAL>15999</TERMINAL>
+          <FECHA>2023-05-17 13:07:06</FECHA>
+          <ESTABLECIMIENTO>barbecho</ESTABLECIMIENTO>
+          <PRECIOPORDOSIS>0.5</PRECIOPORDOSIS>
+          <OPERACION>Reset - Unidad Puesta a 0</OPERACION>
+          <ESTADO>1</ESTADO>
+          <BONOS>0</BONOS>
+        </REQUEST>
+Operacion : Reset - Unidad Puesta a 0
+------------------------------------------------------------
+**17/05/2023 14.05:06
+Terminal=15999&Establecimiento=barbecho&Operacion=Reset - Unidad Puesta a 0&Importe=0&Creditos=0&TotalDosisA=0&TotalDosisB=0&ParcialDosisA=0&ParcialDosisB=0&Caja=0.00
+xml =<?xml version='1.0' encoding='UTF-8'?>
+        <REQUEST type = 'RESP' mode='' >
+          <TERMINAL>15999</TERMINAL>
+          <FECHA>2023-05-17 14:49:06</FECHA>
+          <ESTABLECIMIENTO>barbecho</ESTABLECIMIENTO>
+          <PRECIOPORDOSIS>0.35</PRECIOPORDOSIS>
+          <OPERACION>Reset - Unidad Puesta a 0</OPERACION>
+          <ESTADO>1</ESTADO>
+          <BONOS>0</BONOS>
+        </REQUEST>
+Operacion : Reset - Unidad Puesta a 0

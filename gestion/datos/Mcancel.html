@@ -1,3 +1,7 @@
+<!-- 
+    MCancel - Modal para la cancelación del terminal
+    Version 2.1 23/05/2023
+ -->
 <script type="text/javascript">
     function mSendMIForm() {
        
@@ -14,7 +18,10 @@
         })
             .then(response => response.json())
             .then(response => console.log(JSON.stringify(response)))
-        e.preventDefault();
+        
+
+        document.getElementById("cancelbtn").click(); 
+        alert ("El terminal se CANCELARÁ una vez que se conecte al servidor.\nNormalmante, no mas de 6 minutos.");
     }
 
 </script>
@@ -41,7 +48,7 @@
                     <div class="modal-footer">
                         <button type="button" class="btn btn btn-outline-secondary"
                             data-dismiss="modal">Cancelar</button>
-                        <button type="button" class="btn btn-success" id="BtnCerrar" onclick="mSendMIForm()"
+                        <button type="button" class="btn btn-danger" id="BtnCerrar" onclick="mSendMIForm()"
                             data-dismiss="modal">Inhabilitar</button>
                     </div>
                 </form>

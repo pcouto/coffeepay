@@ -1,6 +1,6 @@
 <?php
 
-// Version 2.20 07/01/2024
+// Version 2.2 17/07/2023
 // Añadidir Anotacion Manual en el diario de movimientos para poder incorporar notas propias
 
 
@@ -212,17 +212,12 @@ if (isset($_GET["terminal"])){
 
 
             if ($terminal == ""){
-               // $g->select_command = "SELECT journal.*, datos.shop from journal inner join datos on journal.terminal = datos.terminal";
-               $g->select_command = "SELECT journal.Id, journal.Fecha,journal.Terminal,journal.Operacion,journal.Descripcion,journal.Creditos, journal.TotalDosisA,journal.TotalDosisB
-               ,journal.Importe,journal.ParcialDosisA, journal.ParcialDosisB, journal.Caja, journal.Notes, datos.Establecimiento,datos.shop  from journal inner join datos on journal.terminal = datos.terminal";
-
+                $g->select_command = "SELECT journal.Id, journal.Fecha,journal.Terminal,journal.Operacion,journal.Descripcion,journal.Creditos, journal.TotalDosisA,journal.TotalDosisB
+                ,journal.Importe,journal.ParcialDosisA, journal.ParcialDosisB, journal.Caja, journal.Notes, datos.Establecimiento,datos.shop  from journal inner join datos on journal.terminal = datos.terminal";
             }
             else 
             {
-              //$g->select_command = "SELECT journal.*, datos.shop from journal inner join datos on journal.terminal = datos.terminal where journal.terminal = '$terminal'";
-              $g->select_command = "SELECT journal.Id, journal.Fecha,journal.Terminal,journal.Operacion,journal.Descripcion,journal.Creditos, journal.TotalDosisA,journal.TotalDosisB
-              ,journal.Importe,journal.ParcialDosisA, journal.ParcialDosisB, journal.Caja, journal.Notes, datos.Establecimiento,datos.shop  from journal inner join datos on journal.terminal = datos.terminal where journal.terminal = '$terminal'";
-
+               $g->select_command = "SELECT journal.*, datos.shop from journal inner join datos on journal.terminal = datos.terminal where journal.terminal = '$terminal'";
             }
             // set database table for CRUD operations
             $g->table = "journal";
@@ -250,7 +245,7 @@ if (isset($_GET["terminal"])){
             $col = array();
             $col["title"] = "Id";
             $col["name"] = "Id";
-            $col["width"] = "50";
+            $col["width"] = "40";
             $col["sortable"] = false;
             $col["align"] = "center";
             $col["hidden"] = true;
@@ -274,7 +269,7 @@ if (isset($_GET["terminal"])){
             $col["title"] = "Terminal";
             $col["name"] = "Terminal";
             $col["dbname"] = "journal.Terminal";
-            $col["width"] = "50";
+            $col["width"] = "45";
             $col["sortable"] = false;
             $col["link"] = "terminales.php?terminal={Terminal}";
             $col["align"] = "center";
@@ -308,8 +303,7 @@ if (isset($_GET["terminal"])){
             $col = array();
             $col["title"] = "Importe";
             $col["name"] = "Importe";
-            $col["dbname"] = "journal.Importe";
-            $col["width"] = "45";
+            $col["width"] = "50";
             $col["sortable"] = true;
             $col["align"] = "Right";
             $col["formatter"] = "currency";
@@ -321,9 +315,10 @@ if (isset($_GET["terminal"])){
             $cols[] = $col;
 
             $col = array();
+            
             $col["title"] = "Creditos";
             $col["name"] = "Creditos";
-            $col["dbname"] = "journal.Creditos";
+            $col["dbname"] = "Journal.Creditos";
             $col["width"] = "40";
             $col["sortable"] = true;
             $col["align"] = "right";
@@ -333,7 +328,6 @@ if (isset($_GET["terminal"])){
             $col = array();
             $col["title"] = "Tot. Dosis A";
             $col["name"] = "TotalDosisA";
-            $col["dbname"] = "journal.TotalDosisA";
             $col["width"] = "40";
             $col["sortable"] = false;
             $col["align"] = "right";
@@ -342,8 +336,7 @@ if (isset($_GET["terminal"])){
             $col = array();
             $col["title"] = "Tot. Dosis B";
             $col["name"] = "TotalDosisB";
-            $col["dbname"] = "journal.TotalDosisB";
-            $col["width"] = "40";
+            $col["width"] = "45";
             $col["sortable"] = false;
             $col["align"] = "right";
             $cols[] = $col;
@@ -351,8 +344,7 @@ if (isset($_GET["terminal"])){
             $col = array();
             $col["title"] = "Parc. Dosis A";
             $col["name"] = "ParcialDosisA";
-            $col["dbname"] = "journal.ParcialDosisA";
-            $col["width"] = "40";
+            $col["width"] = "45";
             $col["sortable"] = false;
             $col["align"] = "right";
             $cols[] = $col;
@@ -360,7 +352,6 @@ if (isset($_GET["terminal"])){
             $col = array();
             $col["title"] = "Parc. Dosis B";
             $col["name"] = "ParcialDosisB";
-            $col["dbname"] = "journal.ParcialDosisB";
             $col["width"] = "40";
             $col["sortable"] = false;
             $col["align"] = "right";
@@ -377,7 +368,7 @@ if (isset($_GET["terminal"])){
             $col = array();
             $col["title"] = "Notas";
             $col["name"] = "Notes";
-            $col["width"] = "250";
+            $col["width"] = "200";
             $col["sortable"] = false;
             $col["align"] = "left";
             $col["editable"] = true;
@@ -444,7 +435,8 @@ function pre_render($data)
 	global $g;
 
 	// running total
-	$result = $g->execute_query("SELECT SUM(abs(importe)) as s FROM (SELECT importe FROM journal inner join datos on journal.terminal = datos.terminal $swhere) AS tmp");
+	// se ha quitado  ORDER BY $sidx $sord  despues de $where porque provocaba muchos errores de ordenacion.
+  $result = $g->execute_query("SELECT SUM(abs(importe)) as s FROM (SELECT importe FROM journal inner join datos on journal.terminal = datos.terminal $swhere) AS tmp");
 	$rs = $result->GetRows();
 	$rs = $rs[0];
 	foreach($data["params"] as &$d)

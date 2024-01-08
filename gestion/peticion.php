@@ -10,6 +10,8 @@
 
 date_default_timezone_set('Europe/Madrid');
 
+      $Version = "3.04 22/05/2023";
+
       //Importamos los ficheros de geolocalizacion
       require('getip.php');
       // Captura la ip de la peticion
@@ -46,8 +48,11 @@ date_default_timezone_set('Europe/Madrid');
         fwrite($fh, PHP_EOL);
       }
 
-      // Leemos los datos del POST
+      // reclog ("------------------------------------------------------------");
+      // reclog ("**" . date("d/m/Y H.m:s") );
+      // reclog ($Xml_Post);
 
+      // Leemos los datos del POST
       $Terminal ="--";
       if (isset ($_POST["Terminal"]))
           {
@@ -193,6 +198,7 @@ date_default_timezone_set('Europe/Madrid');
           <BONOS>$Bonos</BONOS>
         </REQUEST>";
 
+        //reclog ("xml =".$StrXML);
       if ($Operacion=="Venta"){
         $Descripcion =    "Precio : " .$PrecioPorDosis . " € por dosis";
       }
@@ -200,7 +206,10 @@ date_default_timezone_set('Europe/Madrid');
       $LastCash = "";
       if ($Operacion=="Cierre diferido" or $Operacion=="Cierre en Oficina"){
         //$Descripcion = "Cierre en Oficina";
-        $LastCash = "lastcash = '".date('Y-m-d H:i:s')."',"; //  Para el caso de que sea un cierre de caja, anotamos tambien el cierre en el campo Lastcash de datos.
+        //$LastCash = "lastcash = '".date('Y-m-d H:i:s')."',"; //  Para el caso de que sea un cierre de caja, anotamos tambien el cierre en el campo Lastcash de datos.
+        $Sql = "UPDATE datos SET  LastCash = '" .date('Y-m-d H:i:s'). "'  where terminal = '$Terminal'";
+     
+        $Result = mysqli_query($conexion, $Sql);
       }
       
        $Sql = "Insert into journal (Fecha,Terminal,Establecimiento,Operacion,Descripcion,Importe,Creditos,TotalDosisA,TotalDosisB,ParcialDosisA,ParcialDosisB,Caja,Notes)
@@ -209,8 +218,8 @@ date_default_timezone_set('Europe/Madrid');
 
 
       $Result = mysqli_query($conexion, $Sql);
-      
-      if ($TotalDosisA<$RegTotalDosisA or $TotalDosisB<$RegTotalDosisB) {
+      //reclog ("Operacion : ". $Operacion);
+      if ($TotalDosisA<$RegTotalDosisA or $TotalDosisB<$RegTotalDosisB and $Operacion <>"Reset") {
         
         $Sql = "insert into journal (Fecha, Terminal, Establecimiento, Operacion, Descripcion, Importe , Creditos, TotalDosisA, TotalDosisB, ParcialDosisA, ParcialDosisB, Caja)
         values

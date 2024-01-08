@@ -1,6 +1,6 @@
 <?php
 
-// Version 2.20 07/01/2024
+// Version 2.1 21/05/2023
 // Añadidir Anotacion Manual en el diario de movimientos para poder incorporar notas propias
 
 
@@ -9,14 +9,15 @@ date_default_timezone_set('Europe/Madrid');
 include_once '../../login/includes/db_connect.php';
 include_once '../../login/includes/functions.php';
 
-sec_session_start();
+//sec_session_start();
 
-if (login_check($mysqli) == false){
-    echo ("No tiene autorizacion para ver esta página");
-    die();
-}
-$userterminal  = htmlentities($_SESSION['terminal']);
-$username = htmlentities($_SESSION['username']);
+//¡if (login_check($mysqli) == false){
+//    echo ("No tiene autorizacion para ver esta página");
+//    die();
+//}
+
+$userterminal  = "" ;//htmlentities($_SESSION['terminal']);
+$username = "Cafe Duetazze" ;//htmlentities($_SESSION['username']);
 
 if ($username <> "Cafe Duetazze"){
     die();
@@ -98,13 +99,6 @@ if (isset($_GET["terminal"])){
             $f = array();
             $f["column"] = "Operacion";
             $f["op"] = "=";
-            $f["value"] = "Desc. Corregido Automatic"; 
-            $f["css"] = "'background-color': '#05b80b','color':'white' ,'font-weight': 'bold'"; // css class name
-            $f_conditions[] = $f;
-
-            $f = array();
-            $f["column"] = "Operacion";
-            $f["op"] = "=";
             $f["value"] = "Bonos Añadidos";
             //$f["class"] = "blue-row"; 
             $f["css"] = "'background-color': '#C88EEB','color':'white' ,'font-weight': 'bold'"; // css class name
@@ -174,7 +168,7 @@ if (isset($_GET["terminal"])){
             $opt["hidegrid"] = false;
             $opt["rownumbers"] = true;
             $opt["rownumWidth"] = 40;
-            $opt["sortname"] = 'journal.Id';
+            $opt["sortname"] = 'Fecha';
             $opt["sortorder"] = "desc";
             $opt["autowidth"] = false;
             $opt["shrinkToFit"] = true;
@@ -205,24 +199,17 @@ if (isset($_GET["terminal"])){
                       )
                     );
 
-            $opt["onSelectRow"] = "function(ids) { do_onselect(ids); }";
 
             $g->set_options($opt);
 
 
 
             if ($terminal == ""){
-               // $g->select_command = "SELECT journal.*, datos.shop from journal inner join datos on journal.terminal = datos.terminal";
-               $g->select_command = "SELECT journal.Id, journal.Fecha,journal.Terminal,journal.Operacion,journal.Descripcion,journal.Creditos, journal.TotalDosisA,journal.TotalDosisB
-               ,journal.Importe,journal.ParcialDosisA, journal.ParcialDosisB, journal.Caja, journal.Notes, datos.Establecimiento,datos.shop  from journal inner join datos on journal.terminal = datos.terminal";
-
+                $g->select_command = "SELECT journal.*, datos.shop from journal inner join datos on journal.terminal = datos.terminal";
             }
             else 
             {
-              //$g->select_command = "SELECT journal.*, datos.shop from journal inner join datos on journal.terminal = datos.terminal where journal.terminal = '$terminal'";
-              $g->select_command = "SELECT journal.Id, journal.Fecha,journal.Terminal,journal.Operacion,journal.Descripcion,journal.Creditos, journal.TotalDosisA,journal.TotalDosisB
-              ,journal.Importe,journal.ParcialDosisA, journal.ParcialDosisB, journal.Caja, journal.Notes, datos.Establecimiento,datos.shop  from journal inner join datos on journal.terminal = datos.terminal where journal.terminal = '$terminal'";
-
+              $g->select_command = "SELECT journal.*, datos.shop from journal inner join datos on journal.terminal = datos.terminal where journal.terminal = '$terminal'";
             }
             // set database table for CRUD operations
             $g->table = "journal";
@@ -251,7 +238,7 @@ if (isset($_GET["terminal"])){
             $col["title"] = "Id";
             $col["name"] = "Id";
             $col["width"] = "50";
-            $col["sortable"] = false;
+            $col["sortable"] = true;
             $col["align"] = "center";
             $col["hidden"] = true;
 
@@ -308,7 +295,6 @@ if (isset($_GET["terminal"])){
             $col = array();
             $col["title"] = "Importe";
             $col["name"] = "Importe";
-            $col["dbname"] = "journal.Importe";
             $col["width"] = "45";
             $col["sortable"] = true;
             $col["align"] = "Right";
@@ -323,9 +309,8 @@ if (isset($_GET["terminal"])){
             $col = array();
             $col["title"] = "Creditos";
             $col["name"] = "Creditos";
-            $col["dbname"] = "journal.Creditos";
             $col["width"] = "40";
-            $col["sortable"] = true;
+            $col["sortable"] = false;
             $col["align"] = "right";
             $col["css"] = "'background-color':'#FBEC88', 'color':'black'";
             $cols[] = $col;
@@ -333,7 +318,6 @@ if (isset($_GET["terminal"])){
             $col = array();
             $col["title"] = "Tot. Dosis A";
             $col["name"] = "TotalDosisA";
-            $col["dbname"] = "journal.TotalDosisA";
             $col["width"] = "40";
             $col["sortable"] = false;
             $col["align"] = "right";
@@ -342,7 +326,6 @@ if (isset($_GET["terminal"])){
             $col = array();
             $col["title"] = "Tot. Dosis B";
             $col["name"] = "TotalDosisB";
-            $col["dbname"] = "journal.TotalDosisB";
             $col["width"] = "40";
             $col["sortable"] = false;
             $col["align"] = "right";
@@ -351,7 +334,6 @@ if (isset($_GET["terminal"])){
             $col = array();
             $col["title"] = "Parc. Dosis A";
             $col["name"] = "ParcialDosisA";
-            $col["dbname"] = "journal.ParcialDosisA";
             $col["width"] = "40";
             $col["sortable"] = false;
             $col["align"] = "right";
@@ -360,7 +342,6 @@ if (isset($_GET["terminal"])){
             $col = array();
             $col["title"] = "Parc. Dosis B";
             $col["name"] = "ParcialDosisB";
-            $col["dbname"] = "journal.ParcialDosisB";
             $col["width"] = "40";
             $col["sortable"] = false;
             $col["align"] = "right";
@@ -370,7 +351,7 @@ if (isset($_GET["terminal"])){
             $col["title"] = "Caja";
             $col["name"] = "Caja";
             $col["width"] = "40";
-            $col["sortable"] = true;
+            $col["sortable"] = false;
             $col["align"] = "right";
             $cols[] = $col;
 
@@ -418,6 +399,7 @@ $e = array();
 $e["on_data_display"] = array("pre_render","",true);
 $e["on_render_pdf"] = array("render_pdf", null, true);
 
+
 $e["js_on_load_complete"] = "grid_onload";
 //$e["js_on_delete_row"] = "grid_ondelete";
 //$e["js_on_select_row"] = "grid_onselect";
@@ -425,7 +407,7 @@ $e["js_on_load_complete"] = "grid_onload";
 //$e["on_after_update"] = array("after_update", null, true);
 //$e["js_on_load_complete"] = "grid_onload";
 //$e["js_on_select_row"] = "select_row";
-//$e["on_select_row"] = array("select_client", null, true);
+$e["on_select_row"] = array("select_client", null, true);
 
 $g->set_events($e);
 
@@ -444,7 +426,7 @@ function pre_render($data)
 	global $g;
 
 	// running total
-	$result = $g->execute_query("SELECT SUM(abs(importe)) as s FROM (SELECT importe FROM journal inner join datos on journal.terminal = datos.terminal $swhere) AS tmp");
+	$result = $g->execute_query("SELECT SUM(abs(importe)) as s FROM (SELECT importe FROM journal inner join datos on journal.terminal = datos.terminal $swhere ORDER BY $sidx $sord ) AS tmp");
 	$rs = $result->GetRows();
 	$rs = $rs[0];
 	foreach($data["params"] as &$d)
@@ -666,26 +648,8 @@ Suma de totales
 
 
     </style>
-    <script>
-function do_onselect(id)
-        {
-            return;
-           // alert('Simulating, on select row event Column :' +id)
-            var rd = jQuery('#list1').jqGrid('getCell', id, 'Operacion'); // where invdate is column name
-            alert ("Operacion : "+ rd);
-            voldbonos = rd;
-           document.cookie="voldbonos="+rd;
-            alert("cookie :" + document.cookie);
-           // jQuery("#span_extra").html(rd);
-            //var s= document.getElementById("valor");
-            //s.innerHTML = "Seleccionado Id : "+ rd;
-           
-            //open in new window on selection
-            //var selectedRow = jQuery('#list1').jqGrid('getGridParam','selrow');
-            //window.open("edit.php?id="+selectedRow);
 
-          }
-</script>
+
 
         <footer id="pageFooter"><h6>By Knessen Korps S.L.</h6></footer>
         <logo id="pageLogo">
