@@ -1,7 +1,5 @@
   <?php
 
-      $Version = "3.04 22/05/2023";
-
       date_default_timezone_set('Europe/Madrid');
 
       include ('conexion.inc');
@@ -12,14 +10,14 @@
         $txt = "nueva llamada";
         fwrite($myfile, $StringToRecord);
         fwrite($myfile, PHP_EOL);
-        fclose($myfile);
       }
 
-      //$Posted = "";
-      //foreach ($_POST as $key => $value) {
-      //$Posted = $Posted . "\t". htmlspecialchars($key)." ->".htmlspecialchars($value).PHP_EOL;
-      //}
-      
+      $Posted = "";
+      foreach ($_POST as $key => $value) {
+      $Posted = $Posted . "\t". htmlspecialchars($key)." ->".htmlspecialchars($value).PHP_EOL;
+    }
+
+      fclose($myfile);
 
       // Obtenemos las variable Posteadas.
         //Terminal.
@@ -78,13 +76,21 @@
           $Caja = $_POST['Caja'];
         }
 
+        // Caja
+        $Reason="";
+        if (isset($_POST['Reason']))
+        {
+          $Reason = $_POST['Reason'];
+        }
+
       $Sql = "Select * from datos where Terminal = '" . $terminal . "'";
-     
+
       $result = mysqli_query ($conexion,$Sql);
 
       if (mysqli_affected_rows($conexion)==0) {
         // Hay alguien intentando acceder al sistema?
         // Por que llega una peticion de un terminal que no existe?
+
           echo "KO, No existe el terminal ".$terminal;
           die();
       }
@@ -114,43 +120,52 @@
           echo '"cmdvalue" : "'.$cmdvalue.'"';
           echo "}";
 
+        //reclog ($Posted);
+
+        if ($Reason <> ""){
+          $Sql = "insert into journal (Fecha, Terminal, Establecimiento, Operacion, Descripcion, Importe , Creditos, TotalDosisA, TotalDosisB, ParcialDosisA, ParcialDosisB, Caja)
+          values
+          ('".date('Y-m-d H:i:s')."','$terminal','$establecimiento','$Reason','$bonos Bonos','0.00 €','$Creditos','$TotalDosisA','$TotalDosisB','$ParcialDosisA','$ParcialDosisB','$Caja-$cmdvalue')";
+          $Result = mysqli_query($conexion, $Sql);
+        }    
+
         /* Guardamos el lastAlive*/
         
         $Sql = "UPDATE datos SET  Alive = '".date('Y-m-d H:i:s')."', Command = '', CmdValue = 0, Creditos = '$Creditos', Saldo = '$Caja', TotalDosisA = '$TotalDosisA', TotalDosisB = '$TotalDosisB', ParcialDosisA = '$ParcialDosisA', ParcialDosisB = '$ParcialDosisB'  where terminal = '$terminal'";
         
         $Result = mysqli_query($conexion, $Sql);
         
-
-
         /*Anotamos los Bonos como Recibidos. */
         if ($bonos <>0){
+            //reclog ("Recibidos Bonos : ".$bonos);
             $ActualCredits = intval($Creditos) + intval($bonos);
             $Sql = "insert into journal (Fecha, Terminal, Establecimiento, Operacion, Descripcion, Importe , Creditos, TotalDosisA, TotalDosisB, ParcialDosisA, ParcialDosisB, Caja)
             values
             ('".date('Y-m-d H:i:s')."','$terminal','$establecimiento','Bonos Consumidos','$bonos Bonos','0.00 €','$ActualCredits','$TotalDosisA','$TotalDosisB','$ParcialDosisA','$ParcialDosisB','$Caja-$cmdvalue')";
             $Result = mysqli_query($conexion, $Sql);
-            $Sql = "Update datos set Bonos = 0 where terminal = '$terminal'";
+
+            // Ponemos los bonos y los bonos de los datos previos a 0
+            $Sql = "Select PrevData from datos where terminal = '$terminal'";
             $Result = mysqli_query($conexion, $Sql);
-            $bonos = 0;
+            $PrevData = "";
+            if (mysqli_affected_rows($conexion)<>0) {
+                $row = mysqli_fetch_array($Result );
+                $PrevData = json_decode ($row["PrevData"]);
+                $PrevData[0]->{"Bonos"}=0       ;
+                $NewPrevData =json_encode($PrevData);
+                $PrevData = ", PrevData = '$NewPrevData' ";
+            }
+              
+            $Sql = "Update datos set Bonos = 0 $PrevData where terminal = '$terminal'";
+            //reclog ("Sql de bonos : ".$Sql);
+            $Result = mysqli_query($conexion, $Sql);
           }
-        //Si encontramos descuadre de contadores, ponemos la marca del diablo.
-         if (($TotalDosisA<$RegTotalDosisA or $TotalDosisB<$RegTotalDosisB) and $command <> "Reset") {
+
+         if ($TotalDosisA<$RegTotalDosisA or $TotalDosisB<$RegTotalDosisB) {
             $Sql = "insert into journal (Fecha, Terminal, Establecimiento, Operacion, Descripcion, Importe , Creditos, TotalDosisA, TotalDosisB, ParcialDosisA, ParcialDosisB, Caja)
             values
             ('".date('Y-m-d H:i:s')."','$terminal','$establecimiento','Descuadre de Contadores','A: $RegTotalDosisA ->$TotalDosisA B: $RegTotalDosisB->$TotalDosisB ','0.00 €','$Creditos','$TotalDosisA','$TotalDosisB','$ParcialDosisA','$ParcialDosisB','$Caja')";
             $Result = mysqli_query($conexion, $Sql);
-            // Rutina para la restauración automática en caso de marca del diablo.
-            if ($Creditos == 0 || $Creditos >0){
-              $Sql = "Select * from journal where Terminal = '$terminal' limit 2"
-              $Sql = "insert into journal (Fecha, Terminal, Establecimiento, Operacion, Descripcion, Importe , Creditos, TotalDosisA, TotalDosisB, ParcialDosisA, ParcialDosisB, Caja)
-              values
-              ('".date('Y-m-d H:i:s')."','$terminal','$establecimiento','correccion de dosis malvadas','A: $RegTotalDosisA ->$TotalDosisA B: $RegTotalDosisB->$TotalDosisB ','0.00 €','$Creditos','$TotalDosisA','$TotalDosisB','$ParcialDosisA','$ParcialDosisB','$Caja')";
-              $Result = mysqli_query($conexion, $Sql);
-     
-            }
-
-
-            
          }
       // Funcion anulada, la envia el procesador mediante peticion.php, sino hay duplicidades
 

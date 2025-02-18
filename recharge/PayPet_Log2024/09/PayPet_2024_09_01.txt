@@ -1,0 +1,18 @@
+
+--------------------------------------------------
+01-09-2024 01:29:52 Response Received
+--------------------------------------------------
+Mensaje Recibido decodificado :{"Ds_MerchantCode":"362349086","Ds_Terminal":"001","Ds_Order":"107202","Ds_Amount":"1000","Ds_Currency":"978","Ds_Date":"01\/09\/2024","Ds_Hour":"13:29","Ds_SecurePayment":"1","Ds_Card_Country":"724","Ds_Response":"0000","Ds_MerchantData":"","Ds_TransactionType":"0","Ds_ConsumerLanguage":"1","Ds_AuthorisationCode":"189597","Ds_Card_Brand":"1","Ds_Merchant_Cof_Txnid":"2409011329520","Ds_ProcessedPayMethod":"78"}
+<br>Afected Rows on select = 1
+<br>Establecimiento :El Refugio del Blues
+<br>Update journal set Operacion = 'Venta  Visa', Descripcion = '(0000) Transacción autorizada para pagos y preautorizaciones', Importe = 10,notes = 'Auth Num. : 189597' where Id = 107202
+<br>Update realizado
+
+--------------------------------------------------
+01-09-2024 02:11:54 Response Received
+--------------------------------------------------
+Mensaje Recibido decodificado :{"Ds_MerchantCode":"362349086","Ds_Terminal":"001","Ds_Order":"107203","Ds_Amount":"500","Ds_Currency":"978","Ds_Date":"01\/09\/2024","Ds_Hour":"14:11","Ds_SecurePayment":"1","Ds_Card_Country":"724","Ds_Response":"0000","Ds_MerchantData":"","Ds_TransactionType":"0","Ds_ConsumerLanguage":"1","Ds_AuthorisationCode":"189604","Ds_Card_Brand":"1","Ds_ProcessedPayMethod":"78"}
+<br>Afected Rows on select = 1
+<br>Establecimiento :El Refugio del Blues
+<br>Update journal set Operacion = 'Venta  Visa', Descripcion = '(OK) Transacción autorizada para pagos y preautorizaciones', Importe = 5,notes = 'Auth Num. : 189604' where Id = 107203
+<br>Update realizado

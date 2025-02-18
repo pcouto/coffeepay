@@ -20,3 +20,434 @@ Notas :
 Cmd : cierre
 update datos set Command = 'cierre', CmdValue='45'  where Terminal = '14004'
 Sql ejecutado correctemante
+terminal=14060<br />
+importe=275<br />
+notas=<br />
+cmd=cierre<br />
+2024-01-11 22:01:59
+Terminal : 14060
+Importe : 275
+Notas : 
+Cmd : cierre
+update datos set Command = 'cierre', CmdValue='275'  where Terminal = '14060'
+Sql ejecutado correctemante
+
+terminal=15001
+
+bonos=30
+
+notas=
+
+cmd=bonos
+
+---------------------
+
+2024-01-16 19:01:51
+
+Terminal : 15001
+
+Importe : 0
+
+Bonos : 30
+
+Notas : 
+
+Cmd : bonos
+
+Select * from datos where terminal = '15001' limit 1
+
+update datos set Bonos = '30' where Terminal = '15001'
+
+Sql ejecutado correctemante
+
+terminal=15004
+
+bonos=50
+
+notas=Pedro 2
+
+cmd=bonos
+
+---------------------
+
+2024-01-16 19:01:34
+
+Terminal : 15004
+
+Importe : 0
+
+Bonos : 50
+
+Notas : Pedro 2
+
+Cmd : bonos
+
+Select * from datos where terminal = '15004' limit 1
+
+update datos set Bonos = '50' where Terminal = '15004'
+
+Sql ejecutado correctemante
+
+terminal=14021
+
+importe=120
+
+notas=
+
+cmd=cierre
+
+---------------------
+
+2025-02-08 12:02:00
+
+Terminal : 14021
+
+Importe : 120
+
+Bonos : 0
+
+Notas : 
+
+Cmd : cierre
+
+update datos set Command = 'cierre', CmdValue='120'  where Terminal = '14021'
+
+Sql ejecutado correctemante
+
+terminal=14020
+
+importe=50
+
+notas=
+
+cmd=cierre
+
+---------------------
+
+2025-02-08 12:02:54
+
+Terminal : 14020
+
+Importe : 50
+
+Bonos : 0
+
+Notas : 
+
+Cmd : cierre
+
+update datos set Command = 'cierre', CmdValue='50'  where Terminal = '14020'
+
+Sql ejecutado correctemante
+
+terminal=14002
+
+importe=25
+
+notas=
+
+cmd=cierre
+
+---------------------
+
+2025-02-09 12:02:57
+
+Terminal : 14002
+
+Importe : 25
+
+Bonos : 0
+
+Notas : 
+
+Cmd : cierre
+
+update datos set Command = 'cierre', CmdValue='25'  where Terminal = '14002'
+
+Sql ejecutado correctemante
+
+terminal=14005
+
+importe=156
+
+notas=
+
+cmd=cierre
+
+---------------------
+
+2025-02-15 20:02:45
+
+Terminal : 14005
+
+Importe : 156
+
+Bonos : 0
+
+Notas : 
+
+Cmd : cierre
+
+update datos set Command = 'cierre', CmdValue='156'  where Terminal = '14005'
+
+Sql ejecutado correctemante
+
+terminal=14005
+
+importe=156
+
+notas=
+
+cmd=cierre
+
+---------------------
+
+2025-02-15 20:02:03
+
+Terminal : 14005
+
+Importe : 156
+
+Bonos : 0
+
+Notas : 
+
+Cmd : cierre
+
+update datos set Command = 'cierre', CmdValue='156'  where Terminal = '14005'
+
+Sql ejecutado correctemante
+
+terminal=14005
+
+importe=156
+
+notas=
+
+cmd=cierre
+
+---------------------
+
+2025-02-15 20:02:06
+
+Terminal : 14005
+
+Importe : 156
+
+Bonos : 0
+
+Notas : 
+
+Cmd : cierre
+
+update datos set Command = 'cierre', CmdValue='156'  where Terminal = '14005'
+
+Sql ejecutado correctemante
+
+terminal=14005
+
+importe=156
+
+notas=
+
+cmd=cierre
+
+---------------------
+
+2025-02-15 20:02:50
+
+Terminal : 14005
+
+Importe : 156
+
+Bonos : 0
+
+Notas : 
+
+Cmd : cierre
+
+update datos set Command = 'cierre', CmdValue='156'  where Terminal = '14005'
+
+Sql ejecutado correctemante
+
+terminal=14005
+
+importe=156
+
+notas=
+
+cmd=cierre
+
+---------------------
+
+2025-02-15 20:02:21
+
+Terminal : 14005
+
+Importe : 156
+
+Bonos : 0
+
+Notas : 
+
+Cmd : cierre
+
+update datos set Command = 'cierre', CmdValue='156'  where Terminal = '14005'
+
+Sql ejecutado correctemante
+
+terminal=14005
+
+importe=156
+
+notas=
+
+cmd=cierre
+
+---------------------
+
+2025-02-15 21:02:28
+
+Terminal : 14005
+
+Importe : 156
+
+Bonos : 0
+
+Notas : 
+
+Cmd : cierre
+
+update datos set Command = 'cierre', CmdValue='156'  where Terminal = '14005'
+
+Sql ejecutado correctemante
+
+terminal=14005
+
+importe=250
+
+notas=
+
+cmd=cierre
+
+---------------------
+
+2025-02-15 21:02:42
+
+Terminal : 14005
+
+Importe : 250
+
+Bonos : 0
+
+Notas : 
+
+Cmd : cierre
+
+update datos set Command = 'cierre', CmdValue='250'  where Terminal = '14005'
+
+Sql ejecutado correctemante
+
+terminal=14005
+
+importe=156
+
+notas=
+
+cmd=cierre
+
+---------------------
+
+2025-02-15 21:02:24
+
+Terminal : 14005
+
+Importe : 156
+
+Bonos : 0
+
+Notas : 
+
+Cmd : cierre
+
+update datos set Command = 'cierre', CmdValue='156'  where Terminal = '14005'
+
+Sql ejecutado correctemante
+
+terminal=14005
+
+importe=156
+
+notas=
+
+cmd=cierre
+
+---------------------
+
+2025-02-15 21:02:39
+
+Terminal : 14005
+
+Importe : 156
+
+Bonos : 0
+
+Notas : 
+
+Cmd : cierre
+
+update datos set Command = 'cierre', CmdValue='156'  where Terminal = '14005'
+
+Sql ejecutado correctemante
+
+terminal=14005
+
+importe=15
+
+notas=
+
+cmd=cierre
+
+---------------------
+
+2025-02-15 21:02:09
+
+Terminal : 14005
+
+Importe : 15
+
+Bonos : 0
+
+Notas : 
+
+Cmd : cierre
+
+update datos set Command = 'cierre', CmdValue='15'  where Terminal = '14005'
+
+Sql ejecutado correctemante
+
+terminal=14005
+
+importe=156
+
+notas=
+
+cmd=cierre
+
+---------------------
+
+2025-02-15 21:02:52
+
+Terminal : 14005
+
+Importe : 156
+
+Bonos : 0
+
+Notas : 
+
+Cmd : cierre
+
+update datos set Command = 'cierre', CmdValue='156'  where Terminal = '14005'
+
+Sql ejecutado correctemante

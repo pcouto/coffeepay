@@ -1,0 +1,22 @@
+{"DS_MERCHANT_ORDER":"1552565870",
+"DS_MERCHANT_MERCHANTCODE":"999008881",
+"DS_MERCHANT_TERMINAL":"999",
+"DS_MERCHANT_CURRENCY":"978",
+"DS_MERCHANT_TRANSACTIONTYPE":"0",
+"DS_MERCHANT_AMOUNT":"1000",
+"DS_MERCHANT_MERCHANTURL":"http:\/\/www.prueba.com\/urlNotificacion.php",
+"DS_MERCHANT_URLOK":"http:\/\/www.prueba.com\/urlOK.php",
+"DS_MERCHANT_URLKO":"http:\/\/www.prueba.com\/urlKO.php",
+"DS_MERCHANT_EMV3DS": {
+"shipAddrCountry": "840",
+"shipAddrCity": "Ship City Name",
+"shipAddrState": "CO",
+"shipAddrLine3": "Ship Address Line 3",
+"shipAddrLine2": "Ship Address Line 2",
+"shipAddrLine1": "Ship Address Line 1",
+"shipAddrPostCode": "Ship Post Code",
+"cardholderName": "Cardholder Name",
+"email": "example@example.com",
+"mobilePhone": {"cc": "123","subscriber": "123456789"}
+}
+}

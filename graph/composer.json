@@ -1,0 +1,6 @@
+{
+    "require": {
+        "koolreport/core": "^6.2",
+        "koolphp/koolreport": "^3.25"
+    }
+}

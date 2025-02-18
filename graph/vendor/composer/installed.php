@@ -1,0 +1,41 @@
+<?php return array(
+    'root' => array(
+        'name' => '__root__',
+        'pretty_version' => '1.0.0+no-version-set',
+        'version' => '1.0.0.0',
+        'reference' => null,
+        'type' => 'library',
+        'install_path' => __DIR__ . '/../../',
+        'aliases' => array(),
+        'dev' => true,
+    ),
+    'versions' => array(
+        '__root__' => array(
+            'pretty_version' => '1.0.0+no-version-set',
+            'version' => '1.0.0.0',
+            'reference' => null,
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../../',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'koolphp/koolreport' => array(
+            'pretty_version' => '3.25.4',
+            'version' => '3.25.4.0',
+            'reference' => '1ffa6c481535eac59df0852a6eeaa9ff87170e98',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../koolphp/koolreport',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'koolreport/core' => array(
+            'pretty_version' => '6.2.0',
+            'version' => '6.2.0.0',
+            'reference' => '7cf23aabc30b1ab377178dbd2e74d2e92380022f',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../koolreport/core',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+    ),
+);

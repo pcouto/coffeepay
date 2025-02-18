@@ -1,0 +1,5 @@
+C:\htdocs\sotocafe\gestion\datos\lib\inc\jqgrid_dist.php
+
+C:\htdocs\sotocafe\gestion\conexion.inc
+
+C:\htdocs\sotocafe\login\includes\psl-config.php

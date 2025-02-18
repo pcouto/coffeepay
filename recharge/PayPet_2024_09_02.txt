@@ -1,0 +1,8 @@
+
+--------------------------------------------------
+02-09-2024 12:01:36 Response Received
+--------------------------------------------------
+Mensaje Recibido decodificado :{"Ds_MerchantCode":"362349086","Ds_Terminal":"001","Ds_Order":"107208","Ds_Amount":"500","Ds_Currency":"978","Ds_Date":"02\/09\/2024","Ds_Hour":"12:01","Ds_SecurePayment":"1","Ds_Card_Country":"724","Ds_Response":"0000","Ds_MerchantData":"","Ds_TransactionType":"0","Ds_ConsumerLanguage":"1","Ds_AuthorisationCode":"143141","Ds_Card_Brand":"1","Ds_ProcessedPayMethod":"78"}
+<br>Afected Rows on select = 1
+<br>Establecimiento :El Refugio del Blues
+<br>Update realizado

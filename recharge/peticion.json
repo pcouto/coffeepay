@@ -1,0 +1,11 @@
+{
+    "DS_MERCHANT_AMOUNT": "145",
+    "DS_MERCHANT_CURRENCY": "978",
+    "DS_MERCHANT_MERCHANTCODE": "999008881",
+    "DS_MERCHANT_MERCHANTURL": "http://www.prueba.com/urlNotificacion.php",
+    "DS_MERCHANT_ORDER": "1446068581",
+    "DS_MERCHANT_TERMINAL": "1",
+    "DS_MERCHANT_TRANSACTIONTYPE": "0",
+    "DS_MERCHANT_URLKO": "http://www.prueba.com/urlKO.php",
+    "DS_MERCHANT_URLOK": "http://www.prueba.com/urlOK.php"
+  }

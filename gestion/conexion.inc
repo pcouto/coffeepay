@@ -4,11 +4,11 @@
        $contrasena = '@CoffeePay';
 
        $dbname = "coffeepay";
-       $conexion = mysqli_connect($servidor, $usuario, $contrasena, $dbname) ;
+       $conexion = new mysqli($servidor, $usuario, $contrasena, $dbname) ;
 
         // Si hay errores , no se continua con ellos
         /* Comprueba la conexión */
-        if (mysqli_connect_errno()) {
+        if ($conexion->connect_errno) {
             echo("Fallo de conexion: %s\n". mysqli_connect_error());
             exit();
         }
