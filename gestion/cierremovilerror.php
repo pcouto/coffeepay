@@ -19,13 +19,14 @@ require_once('./lib/geoplugin.class.php');    // Geolocaliza la ip
 
 include('conexion.inc');
 
-
 $vdata  = "";
 if (isset($_GET["vdata"])) {
     $vdata = $_GET["vdata"];
 } else {
     die("No se ha especificado algun dato vendor");
 }
+
+$vdata= "1234";
 
 $stmt  = $conexion->prepare("SELECT * from vendedores where Codigo = ? limit 1");
 
@@ -51,7 +52,6 @@ if ($Activo <> 1) {
 
 
 
-
 $terminalfound = false;
 $notas  = "";
 if (isset($_POST["notas"])) {
@@ -72,21 +72,26 @@ if (isset($_POST["terminal"])) {
 
     $terminal = $_POST["terminal"];
 
-    //$sql = "select * from journal where Terminal  = '$terminal' and Operacion = 'Venta' order by Fecha desc limit 1";
-    $sql = "select * from datos where Terminal  = '$terminal' ";
+    //-----------------------------------------------------------------------------------------
 
-    //echo $sql;
-    $Result = mysqli_query($conexion, $sql);
-    if (!$Result) {
-        die("error en sql" . mysqli_error($conexion));
-    }
+    $stmt  = $conexion->prepare("SELECT * from datos where Terminal = ? limit 1");
+
+    $stmt->bind_Param('s', $terminal);
+
+    $stmt->execute();
+
+    $result = $stmt->get_result();
+
+    $NumRows = $result->num_rows;
+    //------------------------------------------------------------------------------------------
+
 
     $Saldo = 0;
-    if (mysqli_affected_rows($conexion) == 0) {
+    if ($NumRows == 0) {
         $terminalfound = false;
         //echo "<span style ='color:#e31717; background-color: #74992e;);'><h3>Terminal <b>$terminal</b> no enontrado</h3></span>";
     } else {
-        $Row = mysqli_fetch_array($Result);
+        $Row = $result->fetch_array();
         $Saldo  = $Row["Saldo"];
         $ParcialDosisA = $Row["ParcialDosisA"];
         $ParcialDosisB = $Row["ParcialDosisB"];
@@ -121,7 +126,7 @@ if (isset($_POST["terminal"])) {
                       request.send(data);
                       
                       alert('Cierre de Caja Realizado Correctamente!');
-                      window.location.replace('./cierremovil.php?vdata=$vdata');
+                      window.location.replace('./cierremovil.php');
                   }
                   
             
@@ -144,12 +149,12 @@ if (isset($_POST["terminal"])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>duetazze comerciales</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.12.1/jquery.min.js"></script>
 
 
     <script>
         $(document).ready(function() {
-
+                
             vterminal = <?php echo ($terminal) ?>;
             vimporte = <?php echo ($importe) ?>;
             vdosiscafe = <?php echo ($ParcialDosisA) ?>;
@@ -157,13 +162,11 @@ if (isset($_POST["terminal"])) {
             vretena = <?php echo ($RetenA) ?>;
             vretenb = <?php echo ($RetenB) ?>;
 
-            if (vdosiscafe != "") {
-
-            }
             document.getElementById("terminal").value = vterminal;
             document.getElementById("importe").value = vimporte;
             document.getElementById("dosiscafe").innerHTML = vdosiscafe + " / " + vretena + "Kgr";
             document.getElementById("dosisdesc").innerHTML = vdosisdescafeinado + " / " + vretenb + "Kgr";
+
             if (vimporte == 0) {
 
                 document.getElementById("importe").value = "";
@@ -250,6 +253,7 @@ if (isset($_POST["terminal"])) {
     </script>
     <script>
         function findTerm() {
+            alert("loaded");
             document.getElementById("importe").value = "";
             document.getElementById("submit1").click();
         }
