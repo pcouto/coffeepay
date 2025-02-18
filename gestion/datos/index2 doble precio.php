@@ -764,7 +764,6 @@ Suma de totales
       <a class="text-white" href="terminales.php">Terminales</a>
       <a class="text-white" href="../../graph/estadisticas/">Estadísticas</a>
       <a class="text-white" href="usuarios.php">Usuarios</a>
-      <a class="text-white" href="vendedores.php">Vendedores</a>
     </div>
 
   </nav>

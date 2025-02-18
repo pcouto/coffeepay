@@ -80,26 +80,6 @@ $opt["column"] = "Bonos";
 $opt["op"] = ">";
 $opt["value"] = 0; // you can use placeholder of column name as value
 $opt["cellcss"] = "'background-color':'#32a852','color':'white','opacity':0.4";
-//$opt["cellcss"] = "'font-weight':'bold','color':'white  ','background-color':'#d3d7f9 '"; // must use (single quote ') with css attr and value
-
-$opt_conditions[] = $opt;
-
-$opt = array(); // Si el terminal se ha inhabilitado, lo indica
-$opt["column"] = "RetenA";
-$opt["target"] = "RetenA";
-$opt["op"] = "!=";
-$opt["value"] = '-1'; // you can use placeholder of column name as value
-//$opt["class"] = "canceled_row"; // css class name
-//$opt["css"] = "'background-color':'red','color':'white','fontWeight':'bold'"; // must use (single quote ') with css attr and value
-$opt_conditions[] = $opt;
-
-$opt = array(); // Si el terminal se ha inhabilitado, lo indica
-$opt["column"] = "RetenB";
-$opt["target"] = "RetenB";
-$opt["op"] = "!=";
-$opt["value"] = '-1'; // you can use placeholder of column name as value
-//$opt["class"] = "canceled_row"; // css class name
-//$opt["css"] = "'background-color':'red','color':'white','fontWeight':'bold'"; // must use (single quote ') with css attr and value
 $opt_conditions[] = $opt;
 
 $opt = array(); // 
@@ -247,17 +227,17 @@ $col["hidden"] = true;
 
 $cols[] = $col;
 
-/* $col = array();
-            $col["title"] = "Email";
-            $col["name"] = "Email";
-            $col["width"] = "35";
-            $col["sortable"] = false;
-            $col["align"] = "left";
-            $col["editable"] = true;
-            //$col["show"] = array("list"=>true, "add"=>true, "edit"=>true, "view"=>true, "bulkedit"=>false);
-            $col["editrules"]["readonly"] = false;
-            $col["hidden"] = false;
-            $cols[] = $col;*/
+$col = array();
+$col["title"] = "Email";
+$col["name"] = "Email";
+$col["width"] = "40";
+$col["sortable"] = false;
+$col["align"] = "left";
+$col["editable"] = true;
+//$col["show"] = array("list"=>true, "add"=>true, "edit"=>true, "view"=>true, "bulkedit"=>false);
+$col["editrules"]["readonly"] = false;
+$col["hidden"] = false;
+$cols[] = $col;
 
 $col = array();
 $col["title"] = "Telefono";
@@ -279,7 +259,7 @@ $col["align"] = "right";
 $cols[] = $col;
 
 $col = array();
-$col["title"] = "PPD";
+$col["title"] = "PPDA";
 $col["name"] = "PrecioPorDosis";
 $col["width"] = "12";
 $col["sortable"] = true;
@@ -293,7 +273,24 @@ $col["formatoptions"] = array(
   "decimalPlaces" => 2
 );
 $col["align"] = "right";
+$cols[] = $col;
 
+
+$col = array();
+$col["title"] = "PPDB";
+$col["name"] = "PrecioPorDosisB";
+$col["width"] = "12";
+$col["sortable"] = true;
+$col["editable"] = true;
+$col["formatter"] = "currency";
+$col["formatoptions"] = array(
+  "prefix" => '',
+  "suffix" => " €",
+  "thousandsSeparator" => ",",
+  "decimalSeparator" => ".",
+  "decimalPlaces" => 2
+);
+$col["align"] = "right";
 $cols[] = $col;
 
 $col = array();
@@ -315,7 +312,7 @@ $cols[] = $col;
 $col = array();
 $col["title"] = "Bonos";
 $col["name"] = "Bonos";
-$col["width"] = "10";
+$col["width"] = "12";
 $col["sortable"] = true;
 $col["editable"] = true;
 $col["editrules"] = array("custom" => true, "custom_func" => "function(val,label){return IsTermOnLine(val,label);}");
@@ -357,28 +354,6 @@ $col["name"] = "ParcialDosisB";
 $col["width"] = "12";
 $col["sortable"] = false;
 $col["editable"] = false;
-$col["align"] = "right";
-$cols[] = $col;
-$col = array();
-
-$col = array();
-$col["title"] = "Reten A";
-$col["name"] = "RetenA";
-$col["width"] = "12";
-$col["sortable"] = false;
-$col["editable"] = true;
-$col["editoptions"] = array("maxlength" => "2");
-$col["align"] = "right";
-$cols[] = $col;
-$col = array();
-
-$col = array();
-$col["title"] = "Reten B";
-$col["name"] = "RetenB";
-$col["width"] = "12";
-$col["sortable"] = false;
-$col["editable"] = true;
-$col["editoptions"] = array("maxlength" => "2");
 $col["align"] = "right";
 $cols[] = $col;
 $col = array();
@@ -561,9 +536,10 @@ function after_update($data)
 
   $Terminal = strip_tags($data["Terminal"]);
   $PPD =  $data["params"]["PrecioPorDosis"];
+  $PPDB =  $data["params"]["PrecioPorDosisB"];
   $Bonos =  $data["params"]["Bonos"];
   $Establecimiento = $data["params"]["Establecimiento"];
-  $PrevData = '[{"PPD": ' . $PPD . ',"Bonos": ' . $Bonos . ', "Est": "' . $Establecimiento . '"}]';
+  $PrevData = '[{"PPD": ' . $PPD . ',"PPDB": ' . $PPDB . ',"Bonos": ' . $Bonos . ', "Est": "' . $Establecimiento . '"}]';
   $Sql = "UPDATE datos SET PrevData = '$PrevData' where Terminal = '$Terminal'";
   $result = $g->execute_query($Sql);
 }
@@ -576,12 +552,14 @@ function update_terminal($data)
   $Terminal = strip_tags($data["Terminal"]);
   $Establecimiento =  $data["params"]["Establecimiento"];
   $Bonos =  $data["params"]["Bonos"];
-  $PrecioPorDosis =  $data["params"]["PrecioPorDosis"];
+  $PrecioPorDosisA =  $data["params"]["PrecioPorDosis"];
+  $PrecioPorDosisB =  $data["params"]["PrecioPorDosisB"];
   $Previo = $data["params"]["PrevData"];
   $PrevData =  json_decode($Previo);
   $PrevBonos = $PrevData[0]->{"Bonos"};
   $PrevEstablecimiento = $PrevData[0]->{"Est"};
-  $PrevPrecioPorDosis = $PrevData[0]->{"PPD"};
+  $PrevPrecioPorDosisA = $PrevData[0]->{"PPD"};
+  $PrevPrecioPorDosisB = $PrevData[0]->{"PPDB"};
 
   if ($PrevBonos <> $Bonos) {
     if ($PrevBonos <> 0) {
@@ -591,21 +569,40 @@ function update_terminal($data)
       $Desc = "Bonos Añadidos";
       $Detail = "$Bonos Bonos";
     }
-    $Sql = "INSERT INTO journal (Fecha, Terminal,Establecimiento,Operacion, Descripcion,Importe,Notes) VALUES ('" . date('Y-m-d H:i:s') . "','$Terminal', '$Establecimiento','$Desc','$Detail ',0,'Usuario : $username')";
+    //$Sql = "INSERT INTO journal (Fecha, Terminal,Establecimiento,Operacion, Descripcion,Importe,Notes) VALUES ('".date('Y-m-d H:i:s')."','$Terminal', '$Establecimiento','$Desc','$Detail ',0,'Usuario : $username')";
+    $Sql = "INSERT INTO journal (Fecha, Terminal,Establecimiento,Operacion, Descripcion,Importe,Notes) VALUES ('" . date('Y-m-d H:i:s') . "','$Terminal', '$Establecimiento','$Desc','$Detail ',0,'Usuario : Sotocafe')";
     $result = $g->execute_query($Sql);
   }
 
-  if ($PrevPrecioPorDosis <> $PrecioPorDosis) {
-
-    if ($PrevPrecioPorDosis <> 0) {
-      $Desc = "Cambio de Precio";
-      $Detail = "$PrevPrecioPorDosis -> $PrecioPorDosis";
-    } else {
-      $Desc = "Precio Establecido";
-      $Detail = "$PrecioPorDosis Euros";
+  if ($PrevPrecioPorDosisA <> $PrecioPorDosisA or $PrevPrecioPorDosisB <> $PrecioPorDosisB) {
+    $Desc = "";
+    if ($PrevPrecioPorDosisA <> $PrecioPorDosisA) {
+      $Desc = "Cambio de Precio A";
+      $Detail = "$PrevPrecioPorDosisA -> $PrecioPorDosisA ";
     }
-    $Sql = "INSERT INTO journal (Fecha, Terminal,Establecimiento,Operacion, Descripcion,Importe,Notes) VALUES ('" . date('Y-m-d H:i:s') . "','$Terminal', '$Establecimiento','$Desc','$Detail ',0,'Usuario : $username')";
-    $result = $g->execute_query($Sql);
+    if ($PrevPrecioPorDosisA = 0) {
+      $Desc = "Precio A Establecido";
+      $Detail = "$PrecioPorDosisA Euros";
+    }
+
+    if ($Desc <> "") {
+      $Sql = "INSERT INTO journal (Fecha, Terminal,Establecimiento,Operacion, Descripcion,Importe,Notes) VALUES ('" . date('Y-m-d H:i:s') . "','$Terminal', '$Establecimiento','$Desc','$Detail ',0,'Usuario : Sotocafe')";
+      $result = $g->execute_query($Sql);
+    }
+
+    $Desc = "";
+    if ($PrevPrecioPorDosisB <> $PrecioPorDosisB) {
+      $Desc = "Cambio de Precio B";
+      $Detail = "$PrevPrecioPorDosisB -> $PrecioPorDosisB";
+    }
+    if ($PrevPrecioPorDosisB = 0) {
+      $Desc = "Precio B Establecido";
+      $Detail = " $PrecioPorDosisB Euros";
+    }
+    if ($Desc <> "") {
+      $Sql = "INSERT INTO journal (Fecha, Terminal,Establecimiento,Operacion, Descripcion,Importe,Notes) VALUES ('" . date('Y-m-d H:i:s') . "','$Terminal', '$Establecimiento','$Desc','$Detail ',0,'Usuario : Sotocafe')";
+      $result = $g->execute_query($Sql);
+    }
   }
 
   if ($PrevEstablecimiento <> $Establecimiento) {
@@ -616,7 +613,7 @@ function update_terminal($data)
       $Desc = "Nombre  Establecido";
       $Detail = "$Establecimiento ";
     }
-    $Sql = "INSERT INTO journal (Fecha, Terminal,Establecimiento,Operacion, Descripcion,Importe,Notes) VALUES ('" . date('Y-m-d H:i:s') . "','$Terminal', '$Establecimiento','$Desc','$Detail ',0,'Usuario : $username')";
+    $Sql = "INSERT INTO journal (Fecha, Terminal,Establecimiento,Operacion, Descripcion,Importe,Notes) VALUES ('" . date('Y-m-d H:i:s') . "','$Terminal', '$Establecimiento','$Desc','$Detail ',0,'Usuario : Sotocafe')";
     $result = $g->execute_query($Sql);
   }
 }
@@ -828,7 +825,7 @@ $out = $g->render("list1");
       <a><a>
           <a class="text-white" href="../../graph/estadisticas/">Estadísticas</a>
           <a class="text-white" href="usuarios.php">Usuarios</a>
-          <a class="text-white" href="vendedores.php">Vendedores</a>
+
     </div>
 
   </nav>

@@ -292,7 +292,7 @@ function select_terminal($data)
 	</style>
     <footer id="pageFooter">Pie</footer>
     <header id="pageHeader">
-          <p>Listado de Usuarios.</p>
+          <p><h6>Listado de Usuarios.</h6></p>
     </header>
     <logo id="pageLogo">
         CAFE DUETAZZE
@@ -307,7 +307,9 @@ function select_terminal($data)
       <div id="menulinks">
         <a class="text-white" href="index2.php" >Movimientos</a>
         <a class="text-white" href="terminales.php">Terminales</a>
-        <a class="text-white" href="usuarios.php">Usuarios</a>
+        <a class="text-white" href="../../graph/estadisticas/">Estadísticas</a>
+          <a class="text-white" href="usuarios.php">Usuarios</a>
+          <a class="text-white" href="vendedores.php">Vendedores</a>
       </div>
 
     </nav>
