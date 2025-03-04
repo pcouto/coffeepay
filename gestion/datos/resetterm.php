@@ -1,4 +1,15 @@
 <?php
+
+
+    /* 
+    ************************************************************************************
+        Solicita el reset de contadores realizado desde la gestion de terminales. 
+    En la ficha del terminal se guarda en el campo 'command' el valor 'Reset'  
+    se ejecuta  cuando el terminal lanza un 'Alive' al servidor poniendo caja y 
+    todos los contadores del terminal a cero.
+    ************************************************************************************ 
+    */
+
     include ('../conexion.inc');
     
     date_default_timezone_set('Europe/Madrid'); 

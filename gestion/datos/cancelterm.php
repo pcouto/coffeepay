@@ -1,4 +1,13 @@
 <?php
+
+    /* 
+    *************************************************************************************
+        Solicita que se cancele el terminal desde la gestion de terminales. 
+    En la ficha del terminal se guarda en el campo 'command' el valor 'Disabled' y que 
+    se ejecuta  cuando el terminal lanza un 'Alive' al servidor inhabilitando el terminal
+    *************************************************************************************
+    */
+
     include ('../conexion.inc');
 
     //echo ("Start");

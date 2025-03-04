@@ -6,7 +6,6 @@
 
 
       function Reclog($StringToRecord){
-        return false;
         $myfile = fopen("Alive.txt", "a") or die("Unable to open file!");
         $txt = "nueva llamada";
         fwrite($myfile, $StringToRecord);

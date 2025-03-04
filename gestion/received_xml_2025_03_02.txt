@@ -1,0 +1,3 @@
+UPDATE datos SET   LastCash = '2025-03-02 14:48:59,'Alive = '2025-03-02 14:48:59', Command = '', 
+        CmdValue = 0, CmdType = 0  where terminal = '14999'
+Select * from journal where terminal = 14999 and OpStatus = 2 order by fecha desc limit 1

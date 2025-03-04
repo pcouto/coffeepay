@@ -1,0 +1,25 @@
+Select * from journal where terminal =  and OpStatus = 2 order by fecha desc limit 1
+Select * from journal where terminal = 14001 and OpStatus = 2 order by fecha desc limit 1
+Encontrado un registro en el historico
+Update journal set OpStatus = 0 where Id = '107106'
+{Usuario : 1234 - Garcia Lopez Fernando}  
+Select * from journal where terminal = 14001 and OpStatus = 2 order by fecha desc limit 1
+Encontrado un registro en el historico
+Update journal set OpStatus = 0 where Id = '107109'
+{Usuario : 1234 - Garcia Lopez Fernando}  
+Select * from journal where terminal = 14001 and OpStatus = 2 order by fecha desc limit 1
+Encontrado un registro en el historico
+Update journal set OpStatus = 0 where Id = '107111'
+{Usuario : 1234 - Garcia Lopez Fernando}  
+Select * from journal where terminal = 14001 and OpStatus = 2 order by fecha desc limit 1
+Encontrado un registro en el historico
+Update journal set OpStatus = 0 where Id = '107098'
+{Usuario : 1234 - Garcia Lopez Fernando}  notas cierre 1
+Select * from journal where terminal = 14001 and OpStatus = 2 order by fecha desc limit 1
+Select * from journal where terminal = 14001 and OpStatus = 2 order by fecha desc limit 1
+Select * from journal where terminal = 14001 and OpStatus = 2 order by fecha desc limit 1
+Encontrado un registro en el historico
+Update journal set OpStatus = 0 where Id = '107116'
+{Usuario : 1234 - Garcia Lopez Fernando}  
+Select * from journal where terminal = 14001 and OpStatus = 2 order by fecha desc limit 1
+Select * from journal where terminal = 14001 and OpStatus = 2 order by fecha desc limit 1

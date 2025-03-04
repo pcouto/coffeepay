@@ -166,7 +166,7 @@ date_default_timezone_set('Europe/Madrid');
       $RegTotalDosisB = $Row["TotalDosisB"];
       $PrecioPorDosis = $Row["PrecioPorDosis"];
       $Bonos= $Row["Bonos"];
-      $CmdType= $Row['CmdType'];
+      $CmdType= $row['CmdType'];
 
       // Si es la primera operacion, y no tiene grabada la identificacion IIP de ciudad y numoperations
       // permitimos que se guarde por primera vez
@@ -211,37 +211,12 @@ date_default_timezone_set('Europe/Madrid');
       *******************************************************************************
       */
       $LastCash = "";
-
-      reclog ("Operacion : .......".$Operacion);
       if ($Operacion=="Cierre diferido" or $Operacion=="Cierre en Oficina"){
         //$Descripcion = "Cierre en Oficina";
         //$LastCash = "lastcash = '".date('Y-m-d H:i:s')."',"; //  Para el caso de que sea un cierre de caja, anotamos tambien el cierre en el campo Lastcash de datos.
-       // $Sql = "UPDATE datos SET  LastCash = '" .date('Y-m-d H:i:s'). "'  where terminal = '$Terminal'";
-        $Sql = "UPDATE datos SET   LastCash = '" .date('Y-m-d H:i:s'). "',Alive = '".date('Y-m-d H:i:s')."', Command = '', CmdValue = 0, CmdType = 0  where terminal = '$Terminal'";
-        reclog ($Sql);
+        $Sql = "UPDATE datos SET  LastCash = '" .date('Y-m-d H:i:s'). "'  where terminal = '$Terminal'";
+     
         $Result = mysqli_query($conexion, $Sql);
-
-        if ($CmdType==2){
-          $Sql = "Select * from journal where terminal = $Terminal and OpStatus = 2 order by fecha desc limit 1";
-          $Result = mysqli_query($conexion, $Sql);
-          reclog ($Sql);
-          if (mysqli_affected_rows($conexion)==1) {
-            reclog ("Encontrado un registro en el historico");
-            $Row = mysqli_fetch_array($Result);
-            $Notes = $Row["Notes"]; 
-            $IdJournal = $Row["Id"];
-            $Creditos = $Row["Creditos"];
-            $Importe = $Row["Importe"]*-1;
-            $Sql = "Update journal set OpStatus = 0 where Id = '$IdJournal'";
-            $Result = mysqli_query($conexion, $Sql);
-            reclog ($Sql);
-            reclog ("$Notes");
-            $Operacion = "Cierre Movil";
-          }
-        }
-
-
-
       }
       
        $Sql = "Insert into journal (Fecha,Terminal,Establecimiento,Operacion,Descripcion,Importe,Creditos,TotalDosisA,TotalDosisB,ParcialDosisA,ParcialDosisB,Caja,Notes)

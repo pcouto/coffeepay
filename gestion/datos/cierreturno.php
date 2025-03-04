@@ -1,4 +1,15 @@
 <?php
+
+    /* 
+    ************************************************************************************
+        Solicita el cierre de caja realizado desde la gestion de terminales. 
+    En la ficha del terminal se guarda en el campo 'command' el valor 'Cierre' con el 
+    dato 'importe' que debe corresponder con el importe en la caja del lector, y que 
+    se ejecuta  cuando el terminal lanza un 'Alive' al servidor poniendo caja y 
+    contadores parciales del terminal a cero.
+    ************************************************************************************ 
+    */
+
     include ('../conexion.inc');
 
     //echo ("Start");

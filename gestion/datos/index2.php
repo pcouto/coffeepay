@@ -69,7 +69,15 @@ $f_conditions[] = $f;
 $f = array();
 $f["column"] = "Operacion";
 $f["op"] = "=";
-$f["value"] = "Cierre Diferido";
+$f["value"] = "Solicitado Cierre Movil";
+$f["css"] = "'background-color': '#a69a94','color':'white' ,'font-weight': 'bold'"; // css class name
+$f_conditions[] = $f;
+
+
+$f = array();
+$f["column"] = "Operacion";
+$f["op"] = "=";
+$f["value"] = "Cierre Movil";
 $f["css"] = "'background-color': '#f21d05','color':'white' ,'font-weight': 'bold'"; // css class name
 $f_conditions[] = $f;
 
@@ -249,7 +257,7 @@ $col["name"] = "Id";
 $col["width"] = "50";
 $col["sortable"] = false;
 $col["align"] = "center";
-$col["hidden"] = false;
+$col["hidden"] = true;
 
 $cols[] = $col;
 

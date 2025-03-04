@@ -20,6 +20,17 @@ require_once('./lib/geoplugin.class.php');    // Geolocaliza la ip
 include('conexion.inc');
 
 
+function Reclog($StringToRecord)
+{
+  //return false;
+  $myfile = fopen("cierremovil.txt", "a") or die("Unable to open file!");
+  //fwrite($myfile, "--------------------------------------------");
+  fwrite($myfile, PHP_EOL);
+  fwrite($myfile, $StringToRecord);
+  fwrite($myfile, PHP_EOL);
+}
+
+
 $vdata  = "";
 if (isset($_GET["vdata"])) {
     $vdata = $_GET["vdata"];
@@ -50,15 +61,13 @@ if ($Activo <> 1) {
 }
 
 
-
-
 $terminalfound = false;
-$notas  = "";
-if (isset($_POST["notas"])) {
-    $notas = $_POST["notas"];
-}
+$notes  = '';
+if (isset($_POST["notes"])) {
+    $notes = $_POST["notes"];
+    }
 
-
+Reclog ("Notes  : $notes");
 
 $importe = 0;
 if (isset($_POST["importe"])) {
@@ -90,6 +99,8 @@ if (isset($_POST["terminal"])) {
         $Saldo  = $Row["Saldo"];
         $ParcialDosisA = $Row["ParcialDosisA"];
         $ParcialDosisB = $Row["ParcialDosisB"];
+        $TotalDosisA = $Row["TotalDosisA"];
+        $TotalDosisB = $Row["TotalDosisB"];
         $RetenA = $Row["RetenA"];
         $RetenB = $Row["RetenB"];
 
@@ -112,10 +123,16 @@ if (isset($_POST["terminal"])) {
 
                       
                       data = new FormData();
+                      data.set('vdata','" . $vdata . "');
+                      data.set('usuario','" . $Usuario . "');
                       data.set('terminal','" . $terminal . "');
                       data.set('importe','" . $importe . "');
-                      data.set('notas','" . $notas . "');
-                      data.set ('cmd','cierre');  
+                      data.set('parcialdosisa','" . $ParcialDosisA . "');
+                      data.set('parcialdosisb','" . $ParcialDosisB . "');
+                      data.set('totaldosisa','" . $TotalDosisA . "');
+                      data.set('totaldosisb','" . $TotalDosisB . "');
+                      data.set('notes','" . $notes . "');
+                      data.set ('cmd','cierremovil');  
                       let request = new XMLHttpRequest();
                       request.open('POST', './catch.php', true);
                       request.send(data);
@@ -149,21 +166,27 @@ if (isset($_POST["terminal"])) {
 
     <script>
         $(document).ready(function() {
-
+            var vnotes = String;
+            vnotes ="<?php echo ($notes) ?>";
             vterminal = <?php echo ($terminal) ?>;
             vimporte = <?php echo ($importe) ?>;
             vdosiscafe = <?php echo ($ParcialDosisA) ?>;
             vdosisdescafeinado = <?php echo ($ParcialDosisB) ?>;
             vretena = <?php echo ($RetenA) ?>;
             vretenb = <?php echo ($RetenB) ?>;
+            
+
 
             if (vdosiscafe != "") {
 
             }
+            
             document.getElementById("terminal").value = vterminal;
             document.getElementById("importe").value = vimporte;
+            document.getElementById("notes").innerText = vnotes;
             document.getElementById("dosiscafe").innerHTML = vdosiscafe + " / " + vretena + "Kgr";
             document.getElementById("dosisdesc").innerHTML = vdosisdescafeinado + " / " + vretenb + "Kgr";
+            
             if (vimporte == 0) {
 
                 document.getElementById("importe").value = "";
@@ -204,7 +227,7 @@ if (isset($_POST["terminal"])) {
 
                                 <tr style="margin-top: 0px;">
                                     <th style="text-align: left;margin-left: 16px;"><label class="form-label" style="text-align: left;font-weight: bold;margin-top: 7px;margin-left: 16px;">Terminal</label></th>
-                                    <th><input class="form-control" type="text" id="terminal" name="terminal" style="margin-left: -19px;border-width: 1px;width: 200px;" autofocus="" placeholder="Numero de Terminal" onblur="findTerm()" inputmode="numeric" minlength="5" maxlength="5"></th>
+                                    <th><input class="form-control" type="text" id="terminal" name="terminal" tabindex="1" style="margin-left: -19px;border-width: 1px;width: 200px;" placeholder="Numero de Terminal" onblur="findTerm()" inputmode="numeric" minlength="5" maxlength="5"></th>
                                 </tr>
                                 <?php
                                 if (isset($Row)) {
@@ -213,19 +236,19 @@ if (isset($_POST["terminal"])) {
                                 }
                                 if (!$terminalfound && isset($terminal)) {
                                     echo "<span style ='color:#e31717; background-color: #74992e;margin:24px;);'><h3>Terminal <b>$terminal</b> no encontrado</h3></span>";
-                                    echo "<script>document.getElementById('terminal').focus(); </script>";
+                                    //echo "<script>document.getElementById('terminal').focus(); </script>";
                                 }
                                 ?>
                             </thead>
                             <tbody>
                                 <tr style="margin-top: 0px;">
                                     <td style="text-align: left;margin-top: 0px;"><label class="form-label" style="text-align: left;font-weight: bold;margin-top: 7px;margin-left: 16px;">Importe&nbsp;&nbsp;</label></td>
-                                    <td><input class="form-control" type="text" id="importe" name="importe" style="margin: 0px;margin-left: -19px;border-width: 1px;margin-top: 14px;width: 200px;" placeholder="Importe"></td>
+                                    <td><input class="form-control" type="text" id="importe" name="importe" tabindex="2" style="margin: 0px;margin-left: -19px;border-width: 1px;margin-top: 14px;width: 200px;" placeholder="Importe" inputmode="numeric"></td>
                                 </tr>
 
                                 <tr>
-                                    <td style="text-align: left;"><label class="form-label" id="label1" style="text-align: center;font-weight: bold;margin-left: 16px;margin-top: 7px;">Notas&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</label></td>
-                                    <td><textarea id="notas" name="notas" class="form-control" style="width: 200px;margin-top: 13px;height: 94px;margin-left: -19px;"></textarea></td>
+                                    <td style="text-align: left;"><label class="form-label" id="label1" style="text-align: center;font-weight: bold;margin-left: 16px;margin-top: 7px;">Notes&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</label></td>
+                                    <td><textarea id="notes" name="notes" class="form-control" tabindex="3"  style="width: 200px;margin-top: 13px;height: 94px;margin-left: -19px;"></textarea></td>
                                 </tr>
                                 <tr>
                                     <td style="text-align: left;margin-left: 16px;"><label class="form-label" id="labeldosiscafe" style="text-align: left;font-weight: bold;margin-top: 7px;margin-left: 16px; ">Dosis / Reten A</label></th>
@@ -243,11 +266,7 @@ if (isset($_POST["terminal"])) {
             </div>
         </div>
     </div>
-    <script>
-        window.onload = function {
-            alert("loaded");
-        }
-    </script>
+
     <script>
         function findTerm() {
             document.getElementById("importe").value = "";
